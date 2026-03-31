@@ -32,7 +32,11 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.ui)
     implementation(libs.compose.material3)
+    implementation(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation.compose)
 
+    implementation(project(":core:datastore"))
     implementation(project(":domain"))
     implementation(project(":core:common"))
     implementation(project(":core:ui"))

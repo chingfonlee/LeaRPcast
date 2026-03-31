@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="placeholder_player_coming_soon">播放器建置中</string>
+    <string name="placeholder_player_coming_soon">Player</string>
+    <string name="player_play_button">Play</string>
+    <string name="player_pause_button">Pause</string>
+    <string name="player_unknown_title">Unknown title</string>
+    <string name="player_now_playing">Now playing</string>
+    <string name="mini_player_content_description">Open player</string>
 </resources>

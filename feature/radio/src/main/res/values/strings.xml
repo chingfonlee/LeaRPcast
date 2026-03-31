@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="placeholder_radio_coming_soon">廣播頁面建置中</string>
+    <string name="radio_library_label">Radio atlas</string>
+    <string name="radio_list_title">Stations in orbit</string>
+    <string name="radio_list_subtitle">Tap play on any station to hand it straight to the player.</string>
+    <string name="radio_loading">Loading stations</string>
+    <string name="radio_error">Could not load radio stations</string>
+    <string name="radio_empty_title">No stations yet</string>
+    <string name="radio_empty_body">The cache is empty right now. We’ll fill it as soon as the network fetch completes.</string>
+    <string name="radio_play_button">Play station</string>
+    <string name="radio_country_unknown">Country unavailable</string>
 </resources>

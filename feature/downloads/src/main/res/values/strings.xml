@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="placeholder_downloads_coming_soon">下載頁面建置中</string>
+    <string name="placeholder_downloads_coming_soon">Downloads coming soon</string>
+    <string name="downloads_loading">Loading downloads</string>
+    <string name="downloads_empty">No downloads yet</string>
+    <string name="download_cancel_button">Cancel download</string>
+    <string name="download_status_queued">Queued</string>
+    <string name="download_status_downloading">Downloading</string>
+    <string name="download_status_completed">Completed</string>
+    <string name="download_status_failed">Failed</string>
+    <string name="download_status_removing">Removing</string>
 </resources>

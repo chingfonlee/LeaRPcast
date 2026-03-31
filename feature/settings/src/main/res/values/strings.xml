@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="placeholder_settings_coming_soon">設定頁面建置中</string>
+    <string name="settings_title">Settings</string>
+    <string name="settings_section_downloads">Downloads and Cleanup</string>
+    <string name="settings_section_playback">Playback</string>
+    <string name="settings_section_radio">Radio Retry</string>
+    <string name="settings_wifi_only">Wi-Fi Only Downloads</string>
+    <string name="settings_auto_delete_mode">Auto Delete Mode</string>
+    <string name="settings_auto_delete_never">Never</string>
+    <string name="settings_auto_delete_after_played">After Played</string>
+    <string name="settings_auto_delete_after_24_hours">After 24 Hours</string>
+    <string name="settings_auto_delete_after_7_days">After 7 Days</string>
+    <string name="settings_resume_after_call">Resume After Call</string>
+    <string name="settings_playback_speed">Default Playback Speed</string>
+    <string name="settings_radio_retry_enabled">Enable Radio Retry</string>
+    <string name="settings_radio_retry_max_attempts">Max Retry Attempts</string>
+    <string name="settings_radio_retry_base_delay_value">Base Delay: %1$d ms</string>
 </resources>

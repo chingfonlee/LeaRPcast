@@ -1,0 +1,7 @@
+- [x] 1.1 Add `serviceScope: CoroutineScope` to `PlaybackService`
+- [x] 2.1 Add `Player.Listener.onPlayerError` override in `PlaybackService`
+- [x] 2.2 Check `PlaybackErrorClassifier.isRetryable(error)`
+- [x] 2.3 If retryable, increment attempt counter, get delay from `RadioReconnectPolicy`, emit `Reconnecting`, launch coroutine to delay then call `player.prepare()`
+- [x] 2.4 If max retries exceeded, emit `Error`, cancel reconnect coroutine
+- [x] 2.5 Reset attempt counter when `setItem()` is called with a new item
+- [ ] 3.1 Simulate network error in emulator and verify reconnect state appears in `PlaybackController`

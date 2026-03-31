@@ -42,12 +42,14 @@ dependencies {
     implementation(libs.compose.activity)
     implementation("androidx.compose.material:material-icons-extended")
     implementation(libs.navigation.compose)
+    implementation(libs.media3.session)
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
     implementation(libs.hilt.work)
     ksp(libs.hilt.work.compiler)
+    implementation(libs.workmanager)
     implementation(libs.timber)
 
     implementation(project(":core:common"))

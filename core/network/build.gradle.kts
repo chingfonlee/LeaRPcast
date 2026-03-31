@@ -3,6 +3,8 @@ import org.gradle.api.JavaVersion
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -24,6 +26,15 @@ android {
 }
 
 dependencies {
+    implementation(libs.coroutines.android)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    implementation(libs.okhttp)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.scalars)
+    implementation("net.sf.kxml:kxml2:2.3.0")
+    testImplementation(libs.junit)
+
     implementation(project(":core:common"))
     implementation(project(":core:model"))
 }

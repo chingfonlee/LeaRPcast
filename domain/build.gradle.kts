@@ -26,4 +26,18 @@ android {
 dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:model"))
+    implementation(project(":core:media"))
+    implementation(project(":core:datastore"))
+    implementation(project(":core:database"))
+    implementation(project(":core:network"))
+    implementation(libs.coroutines.android)
+    implementation("javax.inject:javax.inject:1")
+
+    testImplementation(libs.junit)
+    testImplementation(libs.mockk)
+    testImplementation(libs.coroutines.test)
+    testImplementation(libs.room.runtime)
+    testImplementation(project(":core:testing"))
+    testImplementation("org.robolectric:robolectric:4.15.1")
+    testImplementation(kotlin("test"))
 }

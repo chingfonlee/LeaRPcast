@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="placeholder_podcast_coming_soon">Podcast 頁面建置中</string>
+    <string name="podcast_library_label">Podcast library</string>
+    <string name="podcast_list_title">Fresh reads for your feed shelf</string>
+    <string name="podcast_list_subtitle">Browse subscriptions, refresh individual feeds, and open a podcast to review its episodes.</string>
+    <string name="podcast_loading">Loading podcasts</string>
+    <string name="podcast_empty_title">No podcasts yet</string>
+    <string name="podcast_empty_body">Add or refresh a subscription to populate this shelf with podcasts.</string>
+    <string name="podcast_error_title">Could not load podcasts</string>
+    <string name="podcast_refresh_feed">Refresh feed</string>
+
+    <string name="episode_library_label">Episode library</string>
+    <string name="episode_list_title">Episode archive</string>
+    <string name="episode_list_subtitle">A clean sequence of the latest items pulled from the chosen feed.</string>
+    <string name="episode_loading">Loading episodes</string>
+    <string name="episode_empty_title">No episodes yet</string>
+    <string name="episode_empty_body">When the feed refresh completes, the episode list will appear here.</string>
+    <string name="episode_error_title">Could not load episodes</string>
+    <string name="episode_description_placeholder">Episode summary unavailable in the current feed metadata.</string>
 </resources>

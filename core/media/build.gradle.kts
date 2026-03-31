@@ -28,7 +28,18 @@ android {
 dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+    implementation(libs.coroutines.android)
+    api(libs.media3.exoplayer)
+    implementation(libs.media3.database)
+    implementation(libs.media3.datasource.okhttp)
+    implementation(libs.media3.session)
+    implementation(libs.media3.ui)
+    implementation(libs.media3.common)
+    implementation(libs.okhttp)
 
     implementation(project(":core:common"))
+    implementation(project(":core:datastore"))
     implementation(project(":core:model"))
+
+    testImplementation(libs.junit)
 }

@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -32,9 +34,15 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.ui)
     implementation(libs.compose.material3)
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation(libs.coroutines.android)
+    implementation(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 
     implementation(project(":domain"))
     implementation(project(":core:common"))
+    implementation(project(":core:media"))
     implementation(project(":core:ui"))
     implementation(project(":core:model"))
 }
