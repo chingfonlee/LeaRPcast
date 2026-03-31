@@ -1,0 +1,2 @@
+com.learpc.learpc.feature.downloads
+string placeholder_downloads_coming_soon

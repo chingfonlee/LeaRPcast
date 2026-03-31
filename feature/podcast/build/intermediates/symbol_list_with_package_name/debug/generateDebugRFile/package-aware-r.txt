@@ -1,0 +1,2 @@
+com.learpc.learpc.feature.podcast
+string placeholder_podcast_coming_soon

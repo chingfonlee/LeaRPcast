@@ -1,0 +1,94 @@
+﻿schema: spec-driven
+
+context: |
+  ## Project: LeaRPcast — Android Radio & Podcast App
+
+  ### Identity
+  - App name: LeaRPcast
+  - applicationId: LeaRPcast (package root: com.learpc.learpc)
+  - Status: Brand new project (no existing code)
+  - Platform: Android (Kotlin + Jetpack Compose)
+
+  ### Canonical Naming (THIS FILE IS AUTHORITATIVE — overrides all docs/)
+  - Application class: `LeaRPcastApplication` (NOT RadioCastApplication)
+  - Package root: `com.learpc.learpc` (NOT com.example.radiocast)
+  - Root project name in settings.gradle.kts: `LeaRPcast`
+  - docs/ reference files use `com.example.radiocast` / `RadioCastApplication` as placeholder names;
+    those are historical artifacts and must be overridden by this config in all agent output.
+
+  ### Tech Stack (FIXED — do NOT change)
+  - Language: Kotlin
+  - UI: Jetpack Compose
+  - Player core: AndroidX Media3 / ExoPlayer
+  - Background playback: MediaSessionService
+  - Media control: MediaSession + MediaController
+  - Download: Media3 DownloadManager + DownloadService
+  - Background tasks: WorkManager
+  - Local DB: Room
+  - Preferences: DataStore
+  - Network: Retrofit + OkHttp
+  - RSS parsing: XmlPullParser (custom FeedParser)
+  - Radio data source: RadioBrowser API (https://www.radio-browser.info/)
+  - DI: Hilt
+  - Concurrency: Coroutines + Flow
+  - Logging: Timber
+
+  ### Module Structure (FIXED — do NOT restructure)
+  :app, :core:common, :core:ui, :core:network, :core:database,
+  :core:datastore, :core:media, :core:model, :core:testing,
+  :domain, :feature:radio, :feature:podcast, :feature:player,
+  :feature:downloads, :feature:settings
+
+  ### Key Architecture Rules
+  - Single ExoPlayer instance in PlaybackService (MediaSessionService)
+  - UI never directly accesses ExoPlayer or DAOs
+  - PlaybackStateModel / PlayableItem / InterruptionSnapshot naming is FROZEN
+  - Repository interfaces live in :domain, implementations in :app/data/repository
+  - Workers live in :app/work
+  - PlaybackService lives in :core:media/service
+
+  ### Reference Documents (in /docs folder)
+  - radio_podcast_android_prd.md → PRD + MVP scope
+  - radio_podcast_technical_design_spec_v_1.md → TDS v1
+  - radio_podcast_data_schema_v_1.md → Data Schema v1
+  - radio_podcast_project_structure_v_1.md → Project Structure Spec v1
+  - radio_podcast_issue_list_v_1.md → Issue List v1
+  - radio_podcast_ai_agent_execution_pack_v_1.md → AI Agent Execution Pack v1
+
+  ### Agent Rules
+  - One issue per change (unless explicitly batched)
+  - Always output pre-implementation understanding first
+  - Never self-modify schema, module structure, or frozen naming
+  - Always include handoff summary for next agent
+  - ALWAYS use canonical naming from this file, NEVER copy class/package names from docs/ verbatim
+
+  ### UI String Management (MANDATORY)
+  - App shell UI strings MUST be defined in `app/src/main/res/values/strings.xml`
+  - Feature-specific UI strings MUST be defined in the owning feature module's `src/main/res/values/strings.xml`
+  - The owning module is the module that renders the UI surface for that string
+  - The strings.xml files MUST use UTF-8 encoding (declared as `<?xml version="1.0" encoding="utf-8"?>`)
+  - NO hardcoded string literals are allowed in Composable functions
+  - Use `stringResource(R.string.key_name)` in Compose UI
+  - String key naming: snake_case, prefixed by screen/component
+    (e.g., `radio_screen_reconnecting`, `player_pause_button`)
+  - Plurals and format strings must also live in strings.xml
+  - This rule applies to ALL agents across ALL issues
+
+rules:
+  proposal:
+    - Keep under 400 words
+    - Must reference the Issue ID (e.g. ISSUE-001) from Issue List v1
+    - Must state which Phase (0-6) this belongs to
+    - Must list dependencies (Depends on: ISSUE-XXX)
+  design:
+    - Must specify exact file paths using Project Structure Spec v1
+    - Must not introduce new modules not in the fixed module list
+    - Must not change frozen naming (PlaybackStateModel, PlayableItem, etc.)
+  tasks:
+    - Each task must be atomic and independently verifiable
+    - Must include Acceptance Criteria matching Issue List v1
+    - Must include a Handoff Summary section for the next agent
+    - Estimate effort as: S (< 1hr), M (1-3hr), L (3-8hr)
+    - Any task that introduces UI strings must add them to the owning module's strings.xml (UTF-8), never hardcode
+
+

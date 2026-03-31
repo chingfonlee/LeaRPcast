@@ -1,0 +1,2 @@
+com.learpc.learpc.feature.settings
+string placeholder_settings_coming_soon
