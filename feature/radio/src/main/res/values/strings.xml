@@ -6,7 +6,23 @@
     <string name="radio_loading">Loading stations</string>
     <string name="radio_error">Could not load radio stations</string>
     <string name="radio_empty_title">No stations yet</string>
-    <string name="radio_empty_body">The cache is empty right now. We’ll fill it as soon as the network fetch completes.</string>
+    <string name="radio_empty_body">The cache is empty right now. We will fill it as soon as the network fetch completes.</string>
     <string name="radio_play_button">Play station</string>
+    <string name="radio_add_station_button">Add station</string>
+    <string name="radio_edit_station_button">Edit station</string>
+    <string name="radio_delete_station_button">Delete station</string>
+    <string name="radio_move_up_button">Move station up</string>
+    <string name="radio_move_down_button">Move station down</string>
+    <string name="radio_station_add_title">Add custom station</string>
+    <string name="radio_station_edit_title">Edit station</string>
+    <string name="radio_station_name_label">Station name</string>
+    <string name="radio_station_stream_url_label">Stream URL</string>
+    <string name="radio_station_homepage_url_label">Homepage URL</string>
+    <string name="radio_station_artwork_url_label">Artwork URL</string>
+    <string name="radio_station_country_label">Country</string>
+    <string name="radio_station_language_label">Language</string>
+    <string name="radio_station_genre_label">Genre</string>
+    <string name="radio_station_save_button">Save station</string>
+    <string name="radio_station_cancel_button">Cancel</string>
     <string name="radio_country_unknown">Country unavailable</string>
 </resources>

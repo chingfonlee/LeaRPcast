@@ -23,6 +23,6 @@ interface RadioStationDao {
     @Query("SELECT * FROM radio_station WHERE station_id = :id LIMIT 1")
     suspend fun getById(id: String): RadioStationEntity?
 
-    @Query("SELECT * FROM radio_station ORDER BY is_favorite DESC, sort_order ASC, name COLLATE NOCASE")
+    @Query("SELECT * FROM radio_station ORDER BY COALESCE(sort_order, 2147483647) ASC, is_favorite DESC, name COLLATE NOCASE")
     fun observeAll(): Flow<List<RadioStationEntity>>
 }

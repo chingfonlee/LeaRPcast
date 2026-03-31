@@ -38,6 +38,10 @@ class DefaultRadioRepository @Inject constructor(
         }
     }
 
+    override suspend fun getStations(): List<RadioStation> {
+        return radioLocalDataSource.observeAll().first()
+    }
+
     override suspend fun getById(id: String): RadioStation? {
         return radioLocalDataSource.getById(id)
     }
@@ -53,15 +57,21 @@ class DefaultRadioRepository @Inject constructor(
     private suspend fun refreshStations() {
         val now = System.currentTimeMillis()
         val existingStations = radioLocalDataSource.observeAll().first().associateBy { it.id }
+        val nextSortOrder = existingStations.values
+            .mapNotNull { it.sortOrder }
+            .maxOrNull()
+            ?.plus(1)
+            ?: 0
 
         val remoteStations = radioRemoteDataSource.fetchTopStations(DEFAULT_TOP_STATIONS_LIMIT)
             .getOrElse { return }
 
         withContext(Dispatchers.IO) {
-            remoteStations.map { remoteStation ->
+            remoteStations.mapIndexed { index, remoteStation ->
                 remoteStation.toDomain(
                     existing = existingStations[remoteStation.stationUuid],
-                    now = now
+                    now = now,
+                    fallbackSortOrder = nextSortOrder + index
                 )
             }.let { radioLocalDataSource.upsertAll(it) }
         }
@@ -69,7 +79,8 @@ class DefaultRadioRepository @Inject constructor(
 
     private fun RemoteRadioStation.toDomain(
         existing: RadioStation?,
-        now: Long
+        now: Long,
+        fallbackSortOrder: Int
     ): RadioStation {
         return RadioStation(
             id = stationUuid,
@@ -85,7 +96,7 @@ class DefaultRadioRepository @Inject constructor(
             codec = codec,
             bitrateKbps = bitrateKbps,
             isFavorite = existing?.isFavorite ?: false,
-            sortOrder = existing?.sortOrder,
+            sortOrder = existing?.sortOrder ?: fallbackSortOrder,
             lastSyncedAt = now,
             createdAt = existing?.createdAt ?: now,
             updatedAt = now

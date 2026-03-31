@@ -12,18 +12,29 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ArrowDownward
+import androidx.compose.material.icons.filled.ArrowUpward
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -36,8 +47,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.verticalScroll
 import com.learpc.learpc.core.model.radio.RadioStation
 import com.learpc.learpc.feature.radio.R
+import com.learpc.learpc.feature.radio.ui.model.RadioStationEditorState
 import com.learpc.learpc.feature.radio.ui.viewmodel.RadioViewModel
 
 private val RadioBackdrop = Brush.verticalGradient(
@@ -54,6 +67,14 @@ fun RadioScreen(
     RadioContent(
         uiState = uiState,
         onPlayStation = viewModel::playStation,
+        onAddStation = viewModel::showAddStationEditor,
+        onEditStation = viewModel::showEditStationEditor,
+        onDeleteStation = viewModel::deleteStation,
+        onMoveStationUp = viewModel::moveStationUp,
+        onMoveStationDown = viewModel::moveStationDown,
+        onStationEditorChange = viewModel::updateStationEditor,
+        onDismissStationEditor = viewModel::dismissStationEditor,
+        onSaveStation = viewModel::saveStation,
         modifier = modifier
     )
 }
@@ -62,6 +83,14 @@ fun RadioScreen(
 private fun RadioContent(
     uiState: com.learpc.learpc.feature.radio.ui.model.RadioUiState,
     onPlayStation: (RadioStation) -> Unit,
+    onAddStation: () -> Unit,
+    onEditStation: (RadioStation) -> Unit,
+    onDeleteStation: (RadioStation) -> Unit,
+    onMoveStationUp: (RadioStation) -> Unit,
+    onMoveStationDown: (RadioStation) -> Unit,
+    onStationEditorChange: (RadioStationEditorState) -> Unit,
+    onDismissStationEditor: () -> Unit,
+    onSaveStation: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Box(
@@ -96,19 +125,54 @@ private fun RadioContent(
 
             Spacer(modifier = Modifier.height(22.dp))
 
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End
+            ) {
+                OutlinedButton(onClick = onAddStation) {
+                    Icon(
+                        imageVector = Icons.Filled.Add,
+                        contentDescription = null,
+                        tint = Color(0xFFE0B45C)
+                    )
+                    Spacer(modifier = Modifier.size(8.dp))
+                    Text(text = stringResource(R.string.radio_add_station_button))
+                }
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
             when {
                 uiState.isLoading -> LoadingPanel()
                 uiState.errorMessage != null -> ErrorPanel(message = uiState.errorMessage)
                 uiState.stations.isEmpty() -> EmptyPanel()
                 else -> LazyColumn(verticalArrangement = Arrangement.spacedBy(14.dp)) {
-                    items(uiState.stations, key = { it.id }) { station ->
+                    itemsIndexed(
+                        items = uiState.stations,
+                        key = { _, station -> station.id }
+                    ) { index, station ->
                         RadioStationRow(
                             station = station,
-                            onPlay = { onPlayStation(station) }
+                            onPlay = { onPlayStation(station) },
+                            onEdit = { onEditStation(station) },
+                            onDelete = { onDeleteStation(station) },
+                            onMoveUp = { onMoveStationUp(station) },
+                            onMoveDown = { onMoveStationDown(station) },
+                            canMoveUp = index > 0,
+                            canMoveDown = index < uiState.stations.lastIndex
                         )
                     }
                 }
             }
+        }
+
+        uiState.stationEditor?.let { editor ->
+            RadioStationEditorDialog(
+                editor = editor,
+                onEditorChange = onStationEditorChange,
+                onDismiss = onDismissStationEditor,
+                onSave = onSaveStation
+            )
         }
     }
 }
@@ -180,7 +244,13 @@ private fun EmptyPanel() {
 @Composable
 private fun RadioStationRow(
     station: RadioStation,
-    onPlay: () -> Unit
+    onPlay: () -> Unit,
+    onEdit: () -> Unit,
+    onDelete: () -> Unit,
+    onMoveUp: () -> Unit,
+    onMoveDown: () -> Unit,
+    canMoveUp: Boolean,
+    canMoveDown: Boolean
 ) {
     val initials = station.name
         .split(" ")
@@ -238,13 +308,147 @@ private fun RadioStationRow(
                 )
             }
 
-            IconButton(onClick = onPlay) {
-                Icon(
-                    imageVector = Icons.Filled.PlayArrow,
-                    contentDescription = stringResource(R.string.radio_play_button),
-                    tint = Color(0xFFE0B45C)
-                )
+            Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                IconButton(
+                    onClick = onMoveUp,
+                    enabled = canMoveUp
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.ArrowUpward,
+                        contentDescription = stringResource(R.string.radio_move_up_button),
+                        tint = if (canMoveUp) Color(0xFFE0B45C) else Color(0x665A6A7C)
+                    )
+                }
+                IconButton(
+                    onClick = onMoveDown,
+                    enabled = canMoveDown
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.ArrowDownward,
+                        contentDescription = stringResource(R.string.radio_move_down_button),
+                        tint = if (canMoveDown) Color(0xFFE0B45C) else Color(0x665A6A7C)
+                    )
+                }
+            }
+
+            Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                IconButton(onClick = onPlay) {
+                    Icon(
+                        imageVector = Icons.Filled.PlayArrow,
+                        contentDescription = stringResource(R.string.radio_play_button),
+                        tint = Color(0xFFE0B45C)
+                    )
+                }
+                IconButton(onClick = onEdit) {
+                    Icon(
+                        imageVector = Icons.Filled.Edit,
+                        contentDescription = stringResource(R.string.radio_edit_station_button),
+                        tint = Color(0xFFE0B45C)
+                    )
+                }
+                IconButton(onClick = onDelete) {
+                    Icon(
+                        imageVector = Icons.Filled.Delete,
+                        contentDescription = stringResource(R.string.radio_delete_station_button),
+                        tint = Color(0xFFE0B45C)
+                    )
+                }
             }
         }
     }
+}
+
+@Composable
+private fun RadioStationEditorDialog(
+    editor: RadioStationEditorState,
+    onEditorChange: (RadioStationEditorState) -> Unit,
+    onDismiss: () -> Unit,
+    onSave: () -> Unit
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = {
+            Text(
+                text = if (editor.stationId == null) {
+                    stringResource(R.string.radio_station_add_title)
+                } else {
+                    stringResource(R.string.radio_station_edit_title)
+                }
+            )
+        },
+        text = {
+            Column(
+                modifier = Modifier.verticalScroll(rememberScrollState()),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                OutlinedTextField(
+                    value = editor.name,
+                    onValueChange = { onEditorChange(editor.copy(name = it)) },
+                    modifier = Modifier.fillMaxWidth(),
+                    label = { Text(stringResource(R.string.radio_station_name_label)) },
+                    singleLine = true
+                )
+                OutlinedTextField(
+                    value = editor.streamUrl,
+                    onValueChange = { onEditorChange(editor.copy(streamUrl = it)) },
+                    modifier = Modifier.fillMaxWidth(),
+                    label = { Text(stringResource(R.string.radio_station_stream_url_label)) },
+                    singleLine = true
+                )
+                OutlinedTextField(
+                    value = editor.homepageUrl,
+                    onValueChange = { onEditorChange(editor.copy(homepageUrl = it)) },
+                    modifier = Modifier.fillMaxWidth(),
+                    label = { Text(stringResource(R.string.radio_station_homepage_url_label)) },
+                    singleLine = true
+                )
+                OutlinedTextField(
+                    value = editor.artworkUrl,
+                    onValueChange = { onEditorChange(editor.copy(artworkUrl = it)) },
+                    modifier = Modifier.fillMaxWidth(),
+                    label = { Text(stringResource(R.string.radio_station_artwork_url_label)) },
+                    singleLine = true
+                )
+                OutlinedTextField(
+                    value = editor.country,
+                    onValueChange = { onEditorChange(editor.copy(country = it)) },
+                    modifier = Modifier.fillMaxWidth(),
+                    label = { Text(stringResource(R.string.radio_station_country_label)) },
+                    singleLine = true
+                )
+                OutlinedTextField(
+                    value = editor.language,
+                    onValueChange = { onEditorChange(editor.copy(language = it)) },
+                    modifier = Modifier.fillMaxWidth(),
+                    label = { Text(stringResource(R.string.radio_station_language_label)) },
+                    singleLine = true
+                )
+                OutlinedTextField(
+                    value = editor.genre,
+                    onValueChange = { onEditorChange(editor.copy(genre = it)) },
+                    modifier = Modifier.fillMaxWidth(),
+                    label = { Text(stringResource(R.string.radio_station_genre_label)) },
+                    singleLine = true
+                )
+
+                editor.validationError?.let { error ->
+                    Text(
+                        text = error,
+                        color = Color(0xFFF4C8BF),
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                }
+            }
+        },
+        confirmButton = {
+            Button(onClick = onSave) {
+                Text(text = stringResource(R.string.radio_station_save_button))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(text = stringResource(R.string.radio_station_cancel_button))
+            }
+        }
+    )
 }

@@ -65,4 +65,9 @@ dependencies {
     implementation(project(":feature:player"))
     implementation(project(":feature:downloads"))
     implementation(project(":feature:settings"))
+
+    testImplementation(libs.junit)
+    testImplementation(libs.mockk)
+    testImplementation(libs.coroutines.test)
+    testImplementation(kotlin("test"))
 }

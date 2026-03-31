@@ -38,6 +38,7 @@ dependencies {
     testImplementation(libs.coroutines.test)
     testImplementation(libs.room.runtime)
     testImplementation(project(":core:testing"))
+    testImplementation("androidx.test:core:1.6.1")
     testImplementation("org.robolectric:robolectric:4.15.1")
     testImplementation(kotlin("test"))
 }
