@@ -1,2 +1,0 @@
-com.learpc.learpc.feature.radio
-string placeholder_radio_coming_soon

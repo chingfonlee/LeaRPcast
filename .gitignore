@@ -1,0 +1,32 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Multi-module build folders
+*/build/
+*/*/build/
+*/*/*/build/
+
+# Kotlin caches
+.kotlin/
+
+# IDE specific folders
+.vscode/
+
+# Ignore Mac OS DS_Store
+.DS_Store
+
+# User-specific OpenSpec files (if any)
+.openspec-user/

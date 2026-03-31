@@ -1,7 +1,0 @@
-R_DEF: Internal format may change without notice
-local
-string app_name
-string nav_downloads
-string nav_podcast
-string nav_radio
-string nav_settings
