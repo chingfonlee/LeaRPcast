@@ -88,6 +88,10 @@ class RadioStationManagementUseCaseTest {
             return sortedStations()
         }
 
+        override suspend fun searchStations(query: String): List<RadioStation> {
+            return emptyList()
+        }
+
         override suspend fun getById(id: String): RadioStation? {
             return stations.firstOrNull { it.id == id }
         }

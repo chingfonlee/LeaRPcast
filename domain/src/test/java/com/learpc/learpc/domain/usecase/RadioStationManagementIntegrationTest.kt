@@ -100,6 +100,10 @@ class RadioStationManagementIntegrationTest {
             return radioLocalDataSource.observeAll().first()
         }
 
+        override suspend fun searchStations(query: String): List<RadioStation> {
+            return emptyList()
+        }
+
         override suspend fun getById(id: String): RadioStation? {
             return radioLocalDataSource.getById(id)
         }

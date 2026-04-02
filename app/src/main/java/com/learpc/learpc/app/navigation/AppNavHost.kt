@@ -22,6 +22,7 @@ import com.learpc.learpc.feature.podcast.ui.screen.PodcastListScreen
 import com.learpc.learpc.feature.radio.ui.viewmodel.RadioViewModel
 import com.learpc.learpc.feature.radio.ui.screen.RadioScreen
 import com.learpc.learpc.feature.settings.ui.screen.SettingsScreen
+import com.learpc.learpc.feature.settings.ui.viewmodel.SettingsViewModel
 
 @Composable
 fun AppNavHost(
@@ -63,7 +64,9 @@ fun AppNavHost(
             EpisodeListScreen(viewModel = hiltViewModel())
         }
         composable(AppDestinations.DOWNLOADS) { DownloadsScreen() }
-        composable(AppDestinations.SETTINGS) { SettingsScreen() }
+        composable(AppDestinations.SETTINGS) {
+            SettingsScreen(viewModel = hiltViewModel<SettingsViewModel>())
+        }
         composable(AppDestinations.PLAYER) { PlayerScreen(viewModel = playerViewModel) }
     }
 }

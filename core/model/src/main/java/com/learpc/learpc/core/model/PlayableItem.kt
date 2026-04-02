@@ -5,5 +5,6 @@ data class PlayableItem(
     val title: String,
     val subtitle: String? = null,
     val imageUri: String? = null,
-    val mediaUri: String
+    val mediaUri: String,
+    val fallbackMediaUri: String? = null
 )

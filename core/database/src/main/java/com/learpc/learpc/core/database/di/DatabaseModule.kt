@@ -2,6 +2,8 @@ package com.learpc.learpc.core.database.di
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.learpc.learpc.core.database.AppDatabase
 import com.learpc.learpc.core.database.dao.DownloadRecordDao
 import com.learpc.learpc.core.database.dao.EpisodeDao
@@ -18,6 +20,26 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
+    private val MIGRATION_1_2 = object : Migration(1, 2) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL("ALTER TABLE radio_station ADD COLUMN display_name TEXT")
+            db.execSQL("ALTER TABLE radio_station ADD COLUMN display_frequency TEXT")
+            db.execSQL("ALTER TABLE radio_station ADD COLUMN frequency TEXT")
+            db.execSQL("ALTER TABLE radio_station ADD COLUMN band TEXT")
+            db.execSQL("ALTER TABLE radio_station ADD COLUMN source_group TEXT")
+            db.execSQL("ALTER TABLE radio_station ADD COLUMN network TEXT")
+            db.execSQL("ALTER TABLE radio_station ADD COLUMN region TEXT")
+            db.execSQL("ALTER TABLE radio_station ADD COLUMN category TEXT")
+            db.execSQL("ALTER TABLE radio_station ADD COLUMN media_type TEXT")
+            db.execSQL("ALTER TABLE radio_station ADD COLUMN ui_primary_group TEXT")
+            db.execSQL("ALTER TABLE radio_station ADD COLUMN ui_secondary_group TEXT")
+            db.execSQL("ALTER TABLE radio_station ADD COLUMN country_code TEXT")
+            db.execSQL("ALTER TABLE radio_station ADD COLUMN search_keywords_json TEXT")
+            db.execSQL("ALTER TABLE radio_station ADD COLUMN aliases_json TEXT")
+            db.execSQL("ALTER TABLE radio_station ADD COLUMN merged_from_ids_json TEXT")
+        }
+    }
+
     @Provides
     @Singleton
     fun provideAppDatabase(
@@ -27,7 +49,8 @@ object DatabaseModule {
             context,
             AppDatabase::class.java,
             "radio_podcast.db"
-        ).build()
+        ).addMigrations(MIGRATION_1_2)
+            .build()
     }
 
     @Provides

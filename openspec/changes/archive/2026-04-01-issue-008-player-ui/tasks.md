@@ -27,5 +27,5 @@
 ## 5. Verification
 
 - [x] 5.1 Run `./gradlew :app:assembleDebug`.
-- [ ] 5.2 Verify `PlayerScreen` renders without crash on emulator.
-- [ ] 5.3 Verify `MiniPlayer` is hidden when nothing is playing and visible when a `PlayableItem` is set.
+- [x] 5.2 Verify `PlayerScreen` renders without crash on emulator.
+- [x] 5.3 Verify `MiniPlayer` is hidden when nothing is playing and visible when a `PlayableItem` is set.

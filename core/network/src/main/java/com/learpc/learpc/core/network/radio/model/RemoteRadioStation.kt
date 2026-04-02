@@ -9,12 +9,27 @@ data class RemoteRadioStation(
     val resolvedStreamUrl: String? = null,
     val homepageUrl: String? = null,
     val artworkUrl: String? = null,
+    val displayName: String? = null,
+    val displayFrequency: String? = null,
+    val frequency: String? = null,
+    val band: String? = null,
+    val sourceGroup: String? = null,
+    val network: String? = null,
+    val region: String? = null,
+    val category: String? = null,
+    val mediaType: String? = null,
+    val uiPrimaryGroup: String? = null,
+    val uiSecondaryGroup: String? = null,
     val country: String? = null,
     val countryCode: String? = null,
     val language: String? = null,
     val codec: String? = null,
     val bitrateKbps: Int? = null,
-    val tags: String? = null
+    val tags: String? = null,
+    val searchKeywords: List<String> = emptyList(),
+    val aliases: List<String> = emptyList(),
+    val mergedFromIds: List<String> = emptyList(),
+    val favoriteDefault: Boolean = false
 ) {
     companion object {
         fun fromJson(json: JSONObject): RemoteRadioStation {

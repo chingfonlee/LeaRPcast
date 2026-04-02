@@ -23,7 +23,7 @@ import com.learpc.learpc.core.database.entities.SubscriptionSettingsEntity
         PlaybackProgressEntity::class,
         DownloadRecordEntity::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {

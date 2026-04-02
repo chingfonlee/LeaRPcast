@@ -23,4 +23,20 @@ class RadioRemoteDataSource @Inject constructor(
             }
         }
     }
+
+    suspend fun searchStations(name: String, limit: Int = 25): Result<List<RemoteRadioStation>> {
+        return runCatching {
+            val payload = radioBrowserApiService.searchStations(name = name, limit = limit)
+            val jsonArray = JSONArray(payload)
+            buildList {
+                for (index in 0 until jsonArray.length()) {
+                    val item = jsonArray.optJSONObject(index) ?: continue
+                    val station = RemoteRadioStation.fromJson(item)
+                    if (station.stationUuid.isNotBlank() && station.name.isNotBlank()) {
+                        add(station)
+                    }
+                }
+            }
+        }
+    }
 }

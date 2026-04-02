@@ -31,7 +31,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.learpc.learpc.core.datastore.preferences.AutoDeleteMode
 import com.learpc.learpc.core.datastore.preferences.UserPreferences
 import com.learpc.learpc.feature.settings.R
@@ -40,7 +39,7 @@ import kotlin.math.roundToInt
 
 @Composable
 fun SettingsScreen(
-    viewModel: SettingsViewModel = hiltViewModel(),
+    viewModel: SettingsViewModel,
     modifier: Modifier = Modifier
 ) {
     val settings by viewModel.settingsState.collectAsState()

@@ -5,6 +5,8 @@ import androidx.media3.common.MediaMetadata
 import androidx.media3.common.Player
 import androidx.media3.common.PlaybackException
 import androidx.media3.session.MediaController
+import android.os.Bundle
+import android.net.Uri
 import com.learpc.learpc.core.model.PlayableItem
 import com.learpc.learpc.core.model.PlaybackStateModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -63,6 +65,11 @@ class DefaultPlaybackController @Inject constructor(
 
     override fun setItem(item: PlayableItem) {
         val controller = mediaController ?: return
+        val extras = Bundle().apply {
+            item.fallbackMediaUri?.takeIf { it.isNotBlank() }?.let {
+                putString(PlayableItemMetadataKeys.FALLBACK_MEDIA_URI, it)
+            }
+        }
         val mediaItem = MediaItem.Builder()
             .setMediaId(item.id)
             .setUri(item.mediaUri)
@@ -71,6 +78,11 @@ class DefaultPlaybackController @Inject constructor(
                     .setTitle(item.title)
                     .setSubtitle(item.subtitle)
                     .setArtworkUri(item.imageUri?.let(android.net.Uri::parse))
+                    .apply {
+                        if (!extras.isEmpty) {
+                            setExtras(extras)
+                        }
+                    }
                     .build()
             )
             .build()
@@ -138,6 +150,9 @@ class DefaultPlaybackController @Inject constructor(
             ?: item.mediaMetadata.albumArtist?.toString()
 
         val imageUri = item.mediaMetadata.artworkUri?.toString()
+        val fallbackMediaUri = item.mediaMetadata.extras?.getString(
+            PlayableItemMetadataKeys.FALLBACK_MEDIA_URI
+        )
 
         val id = item.mediaId.ifBlank { mediaUri.ifBlank { title } }
 
@@ -146,7 +161,8 @@ class DefaultPlaybackController @Inject constructor(
             title = title,
             subtitle = subtitle,
             imageUri = imageUri,
-            mediaUri = mediaUri
+            mediaUri = mediaUri,
+            fallbackMediaUri = fallbackMediaUri
         )
     }
 }

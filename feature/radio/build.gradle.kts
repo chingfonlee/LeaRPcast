@@ -43,5 +43,18 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":core:common"))
     implementation(project(":core:ui"))
+    implementation(project(":core:media"))
     implementation(project(":core:model"))
+
+    testImplementation(libs.junit)
+    testImplementation(libs.mockk)
+    testImplementation(libs.coroutines.test)
+    testImplementation(kotlin("test"))
+
+    androidTestImplementation(platform(libs.compose.bom))
+    androidTestImplementation(libs.compose.ui)
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation("androidx.test:runner:1.6.2")
 }

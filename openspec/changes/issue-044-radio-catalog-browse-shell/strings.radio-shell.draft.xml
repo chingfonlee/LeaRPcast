@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Radio-local tabs -->
+    <string name="radio_shell_tab_home">Home</string>
+    <string name="radio_shell_tab_stations">Stations</string>
+    <string name="radio_shell_tab_search">Search</string>
+    <string name="radio_shell_tab_favorites">Favorites</string>
+    <string name="radio_shell_tab_player">Player</string>
+
+    <!-- Loading and recovery -->
+    <string name="radio_shell_loading_title">Loading stations</string>
+    <string name="radio_shell_loading_body">Fetching your saved and recent stations now.</string>
+    <string name="radio_shell_network_failure_title">Could not load stations</string>
+    <string name="radio_shell_network_failure_body">Check your connection and try again.</string>
+    <string name="radio_shell_retry_button">Retry</string>
+
+    <!-- Home empty state -->
+    <string name="radio_home_empty_title">No saved stations yet</string>
+    <string name="radio_home_empty_body">Save a station to make it easy to listen again.</string>
+    <string name="radio_home_empty_primary_action">Add favorites</string>
+    <string name="radio_home_empty_secondary_action">Browse stations</string>
+
+    <!-- Favorites empty state -->
+    <string name="radio_favorites_empty_title">Your favorites are empty</string>
+    <string name="radio_favorites_empty_body">Add stations you listen to often so they stay one tap away.</string>
+    <string name="radio_favorites_empty_primary_action">Browse stations</string>
+
+    <!-- Search empty state -->
+    <string name="radio_search_empty_title">No results for "%1$s"</string>
+    <string name="radio_search_empty_body">Try a different station name, frequency, or network.</string>
+    <string name="radio_search_empty_clear_action">Clear search</string>
+    <string name="radio_search_empty_refine_action">Refine search</string>
+
+    <!-- Player text and actions -->
+    <string name="radio_player_now_playing_label">Now playing</string>
+    <string name="radio_player_state_playing">Playing now</string>
+    <string name="radio_player_state_buffering">Buffering</string>
+    <string name="radio_player_state_paused">Paused</string>
+    <string name="radio_player_state_failed">Playback failed</string>
+    <string name="radio_player_station_name_label">Station</string>
+    <string name="radio_player_metadata_template">%1$s · %2$s</string>
+    <string name="radio_player_play_button">Play</string>
+    <string name="radio_player_pause_button">Pause</string>
+    <string name="radio_player_favorite_button">Add to favorites</string>
+    <string name="radio_player_unfavorite_button">Remove from favorites</string>
+    <string name="radio_player_retry_button">Play again</string>
+</resources>

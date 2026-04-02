@@ -1,8 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="radio_shell_tab_home">Home</string>
+    <string name="radio_shell_tab_stations">Stations</string>
+    <string name="radio_shell_tab_search">Search</string>
+    <string name="radio_shell_tab_favorites">Favorites</string>
+    <string name="radio_shell_tab_player">Player</string>
+
+    <string name="radio_shell_loading_title">Loading stations</string>
+    <string name="radio_shell_loading_body">Fetching your saved and recent stations now.</string>
+    <string name="radio_shell_network_failure_title">Could not load stations</string>
+    <string name="radio_shell_network_failure_body">Check your connection and try again.</string>
+    <string name="radio_shell_retry_button">Retry</string>
+
+    <string name="radio_shell_saved_title">My favorites</string>
+    <string name="radio_shell_recent_title">Recent listening</string>
+    <string name="radio_shell_catalog_title">Browse the catalog</string>
+    <string name="radio_shell_catalog_stations_button">Browse stations</string>
+    <string name="radio_shell_catalog_search_button">Search</string>
+    <string name="radio_shell_catalog_favorites_button">Favorites</string>
+
+    <string name="radio_shell_stations_categories_title">Categories</string>
+    <string name="radio_shell_stations_networks_title">Networks</string>
+    <string name="radio_shell_stations_regions_title">Regions</string>
+    <string name="radio_shell_stations_mode_categories">Categories</string>
+    <string name="radio_shell_stations_mode_networks">Networks</string>
+    <string name="radio_shell_stations_mode_regions">Regions</string>
+    <string name="radio_shell_other_group">Other</string>
+    <string name="radio_shell_sort_recent">Recent play</string>
+    <string name="radio_shell_sort_name">Name</string>
+    <string name="radio_shell_sort_frequency">Frequency</string>
+    <string name="radio_shell_taiwan_stations_title">Taiwan stations</string>
+    <string name="radio_shell_taiwan_empty_title">No Taiwan stations found</string>
+    <string name="radio_shell_taiwan_empty_body">Try search to find stations from Taiwan or the global catalog.</string>
+
+    <string name="radio_shell_search_hint">Search stations</string>
+    <string name="radio_shell_search_placeholder">Station name, frequency, or network</string>
+    <string name="radio_shell_search_helper">Search by station name, country, genre, codec, or bitrate.</string>
+    <string name="radio_shell_search_empty_title">Start searching</string>
+    <string name="radio_shell_search_prompt_body">Type a station name, frequency, or network to see matching results.</string>
+    <string name="radio_shell_search_results_title">Search results</string>
+
+    <string name="radio_home_empty_title">No saved stations yet</string>
+    <string name="radio_home_empty_body">Save a station to make it easy to listen again.</string>
+    <string name="radio_home_empty_primary_action">Add favorites</string>
+    <string name="radio_home_empty_secondary_action">Browse stations</string>
+
+    <string name="radio_search_empty_title">No results for \"%1$s\"</string>
+    <string name="radio_search_empty_body">Try a different station name, frequency, or network.</string>
+    <string name="radio_search_empty_clear_action">Clear search</string>
+
+    <string name="radio_favorites_empty_title">Your favorites are empty</string>
+    <string name="radio_favorites_empty_body">Add stations you listen to often so they stay one tap away.</string>
+    <string name="radio_favorites_empty_primary_action">Browse stations</string>
+
+    <string name="radio_player_now_playing_label">Now playing</string>
+    <string name="radio_player_state_playing">Playing now</string>
+    <string name="radio_player_state_buffering">Buffering</string>
+    <string name="radio_player_state_paused">Paused</string>
+    <string name="radio_player_state_failed">Playback failed</string>
+    <string name="radio_player_station_name_label">Station</string>
+    <string name="radio_player_metadata_template">%1$s - %2$s</string>
+    <string name="radio_player_play_button">Play</string>
+    <string name="radio_player_pause_button">Pause</string>
+    <string name="radio_player_favorite_button">Add to favorites</string>
+    <string name="radio_player_unfavorite_button">Remove from favorites</string>
+    <string name="radio_player_retry_button">Play again</string>
+
+    <string name="radio_home_title">Radio</string>
+    <string name="radio_home_subtitle">Tap a saved station to start listening.</string>
+    <string name="radio_home_loading_hint">Loading your stations</string>
+    <string name="radio_add_favorite_button">Add favorite station</string>
+    <string name="radio_retry_button">Retry</string>
+    <string name="radio_retry_playback_button">Play again</string>
+    <string name="radio_now_playing_label">Now playing</string>
+    <string name="radio_now_playing_active">Playing now</string>
+    <string name="radio_now_playing_buffering">Buffering</string>
+    <string name="radio_now_playing_paused">Paused</string>
+    <string name="radio_now_playing_badge">Playing</string>
+    <string name="radio_network_failure_title">Network unavailable</string>
+    <string name="radio_network_failure_body">We could not load your stations. Check your connection and try again.</string>
+    <string name="radio_playback_failure_title">Playback failed</string>
+    <string name="radio_playback_failure_body">This station could not start right now. Try another one or play again.</string>
+    <string name="radio_add_success_title">Station added</string>
+    <string name="radio_add_success_body">Added %1$s to your stations.</string>
+    <string name="radio_add_success_body_default">Station added to your stations.</string>
+    <string name="radio_empty_starters_title">Try a station</string>
+    <string name="radio_favorite_button">Add to favorites</string>
+    <string name="radio_unfavorite_button">Remove from favorites</string>
     <string name="radio_library_label">Radio atlas</string>
-    <string name="radio_list_title">Stations in orbit</string>
-    <string name="radio_list_subtitle">Tap play on any station to hand it straight to the player.</string>
+    <string name="radio_discovery_title">Discover stations</string>
+    <string name="radio_discovery_search_label">Search stations</string>
+    <string name="radio_discovery_search_button">Search</string>
+    <string name="radio_discovery_add_button">Add station</string>
+    <string name="radio_discovery_all_option">All</string>
+    <string name="radio_discovery_type_title">Type</string>
+    <string name="radio_discovery_region_title">Region</string>
+    <string name="radio_quick_add_title">Add station</string>
+    <string name="radio_quick_add_name_label">Station name</string>
+    <string name="radio_quick_add_stream_url_label">Stream URL</string>
+    <string name="radio_quick_add_save_button">Save station</string>
+    <string name="radio_quick_add_cancel_button">Cancel</string>
+    <string name="radio_recommended_title">Recommended stations</string>
+    <string name="radio_explore_more_title">More stations to explore</string>
+    <string name="radio_search_results_title">Search results</string>
+    <string name="radio_all_stations_title">All stations</string>
+    <string name="radio_saved_stations_title">Saved for later</string>
+    <string name="radio_no_search_results_title">No matches yet</string>
+    <string name="radio_empty_discovery_title">No stations yet</string>
+    <string name="radio_searching">Searching stations</string>
+    <string name="radio_preview_button">Play</string>
+    <string name="radio_save_for_later_button">Save for later</string>
+    <string name="radio_saved_badge">Saved</string>
     <string name="radio_loading">Loading stations</string>
     <string name="radio_error">Could not load radio stations</string>
     <string name="radio_empty_title">No stations yet</string>

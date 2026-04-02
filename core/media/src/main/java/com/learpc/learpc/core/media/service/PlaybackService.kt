@@ -4,6 +4,7 @@ import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import androidx.media3.common.PlaybackException
 import androidx.media3.common.util.UnstableApi
+import android.net.Uri
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.session.MediaSession
 import androidx.media3.session.MediaSessionService
@@ -11,6 +12,7 @@ import com.learpc.learpc.core.datastore.preferences.UserPreferencesDataSource
 import com.learpc.learpc.core.media.PlaybackController
 import com.learpc.learpc.core.media.PlaybackErrorClassifier
 import com.learpc.learpc.core.media.PlaybackProgressSaver
+import com.learpc.learpc.core.media.PlayableItemMetadataKeys
 import com.learpc.learpc.core.media.PlayerEventMapper
 import com.learpc.learpc.core.media.RadioReconnectPolicy
 import com.learpc.learpc.core.media.ResumeAfterInterruptionPolicy
@@ -136,6 +138,11 @@ class PlaybackService : MediaSessionService() {
     private fun handlePlayerError(error: PlaybackException) {
         val localPlayer = player ?: return
         val scope = serviceScope ?: return
+        val currentMediaItem = localPlayer.currentMediaItem
+
+        if (tryFallbackStream(localPlayer, currentMediaItem)) {
+            return
+        }
 
         if (playbackErrorClassifier.isRetryable(error)) {
             if (retryAttempt >= radioReconnectPolicy.maxAttempts) {
@@ -163,6 +170,34 @@ class PlaybackService : MediaSessionService() {
                 PlaybackStateModel.Error(playerEventMapper.mapPlaybackError(error.errorCode))
             )
         }
+    }
+
+    private fun tryFallbackStream(
+        localPlayer: ExoPlayer,
+        currentMediaItem: MediaItem?
+    ): Boolean {
+        val fallbackUri = currentMediaItem?.mediaMetadata?.extras
+            ?.getString(PlayableItemMetadataKeys.FALLBACK_MEDIA_URI)
+            ?.trim()
+            ?.takeIf { it.isNotBlank() }
+            ?: return false
+
+        val currentUri = currentMediaItem.localConfiguration?.uri?.toString()
+            ?: currentMediaItem.requestMetadata.mediaUri?.toString()
+            ?: currentMediaItem.mediaId
+
+        if (fallbackUri == currentUri) {
+            return false
+        }
+
+        val fallbackItem = currentMediaItem.buildUpon()
+            .setUri(Uri.parse(fallbackUri))
+            .build()
+
+        localPlayer.setMediaItem(fallbackItem)
+        localPlayer.prepare()
+        localPlayer.play()
+        return true
     }
 
     private fun resetReconnectState() {

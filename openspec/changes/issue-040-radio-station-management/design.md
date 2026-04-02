@@ -1,17 +1,23 @@
 ## Context
 
-The Radio feature already has a working browse-and-play flow. `RadioViewModel` only exposes station playback, while `DefaultRadioRepository.observeStations()` streams stations from the local Room cache and refreshes from RadioBrowser in the background. The data model already includes `sortOrder`, and the DAO orders stations by favorite state, sort order, and name, which gives us an existing foundation for user-controlled ordering.
+The Radio feature already has a working browse-and-play flow, but the current experience still reads more like a station directory than a listening hub. From a user perspective, the real job-to-be-done is: "I want to hear something I like now, and I want it to be easy to save that station when I find it."
 
-What is missing is the user-facing management layer: the Radio tab cannot add custom stations, edit or delete them, or change their order. The goal is to expose those capabilities without disturbing playback, cache-first loading, or RadioBrowser refresh behavior.
+This design reorients the Radio tab around listening first and management second. The user should immediately understand:
+
+- what can be played right now,
+- how to add a station they want to keep,
+- and how to keep preferred stations easy to reach later.
+
+The existing Room schema already provides a foundation for ordering and persistence, so the design should build on that instead of introducing a new storage model or a heavier navigation flow.
 
 ## Goals / Non-Goals
 
 **Goals:**
-- Let users add custom radio stations with a name and stream URL.
-- Let users edit or delete stations in their radio library.
-- Let users reorder stations and keep that ordering across app restarts.
+- Make the Radio tab feel like a listening-first hub.
+- Put an obvious add-station path in the user's line of sight.
+- Let users save stations they personally want to hear and keep them easy to access later.
 - Preserve the current play flow and cache-first refresh behavior.
-- Keep the feature within the existing module structure.
+- Keep station management lightweight, fast, and low-friction.
 
 **Non-Goals:**
 - Cloud sync or account-backed station libraries.
@@ -19,56 +25,126 @@ What is missing is the user-facing management layer: the Radio tab cannot add cu
 - Changes to the playback engine or `PlaybackService`.
 - RadioBrowser catalog moderation or remote station editing.
 
-## Decisions
+## UX Principles
 
-1. Use the existing `radio_station` table and `sort_order` column as the source of truth for ordering.
-   - The current schema already stores order, favorite state, and timestamps.
-   - This avoids a new table, keeps the change local, and does not require a schema migration.
-   - Alternative considered: a separate custom-station table. Rejected because it would duplicate the model and complicate refresh logic.
+1. Listen first, manage second.
+   - The page should surface playback and quick access before CRUD controls.
+   - Management actions should never feel more important than starting playback.
 
-2. Add dedicated domain use cases for station management instead of letting the UI call the repository directly.
+2. Add is part of listening.
+   - The add-station flow should feel like a natural extension of discovering a station.
+   - If a user hears something they like, they should be able to save it immediately without navigating away.
+
+3. Preferred stations should feel effortless.
+   - The UI should help users keep "the stations I actually want to hear" near the top.
+   - Reordering is a convenience that reduces friction the next time the user opens Radio.
+
+4. Management must stay out of the way until needed.
+   - Edit, delete, and reorder actions should be present, but secondary.
+   - A user who just wants to listen should not feel like they are entering an admin screen.
+
+## Design Decisions
+
+1. Keep the existing `radio_station` table and `sort_order` column as the source of truth.
+   - This keeps the feature local and avoids a schema migration.
+   - `sort_order` should remain the mechanism for preserving a user's preferred listening order.
+
+2. Use dedicated domain use cases for station management.
    - Likely files:
      - `domain/src/main/java/com/learpc/learpc/domain/usecase/AddRadioStationUseCase.kt`
      - `domain/src/main/java/com/learpc/learpc/domain/usecase/UpdateRadioStationUseCase.kt`
      - `domain/src/main/java/com/learpc/learpc/domain/usecase/DeleteRadioStationUseCase.kt`
      - `domain/src/main/java/com/learpc/learpc/domain/usecase/ReorderRadioStationsUseCase.kt`
-   - This keeps `feature:radio` thin and preserves the existing architecture rule that business logic lives in the domain layer.
-   - Alternative considered: expose CRUD/reorder calls directly from `RadioRepository` into the ViewModel. Rejected because it couples the UI to storage details.
+   - This keeps the radio UI thin and keeps the listening experience decoupled from storage logic.
 
-3. Keep RadioBrowser refresh behavior, but preserve local ordering and custom entries.
-   - `DefaultRadioRepository` already copies `sortOrder`, `isFavorite`, and timestamps from the existing row when remote data is refreshed.
-   - Custom stations should use stable local IDs so refresh never collides with user-created rows.
-   - Alternative considered: disable refresh for managed stations. Rejected because it would degrade the existing cache refresh experience.
+3. Preserve RadioBrowser refresh, but make personal stations durable.
+   - Refresh should continue to keep the library fresh.
+   - User-added stations and user-defined ordering should survive refresh cycles.
+   - The user's saved listening choices should not feel fragile.
 
-4. Implement management UI inside the Radio feature instead of creating a new feature module.
-   - The add/edit entry points, reorder affordances, and validation live in `feature/radio`.
-   - The current `RadioScreen` is the right place to surface the management flow, since the capability is part of the radio library itself.
-   - Likely files:
-     - `feature/radio/src/main/java/com/learpc/learpc/feature/radio/ui/screen/RadioScreen.kt`
-     - `feature/radio/src/main/java/com/learpc/learpc/feature/radio/ui/viewmodel/RadioViewModel.kt`
-     - `feature/radio/src/main/java/com/learpc/learpc/feature/radio/ui/model/RadioUiState.kt`
+4. Structure the UI around "play now" and "save for later."
+   - The top of the screen should prioritize a listen-now surface, not a raw list.
+   - The list below should help the user pick from their stations quickly.
+   - Management controls should be available, but visually quieter than play actions.
 
-5. Use a modal add/edit surface and explicit reorder controls.
-   - A bottom sheet or dialog is enough for entering station name and stream URL.
-   - Reorder can be implemented with drag handles or move up/down controls, depending on Compose support and testability.
-   - Alternative considered: a full-screen editor. Rejected because it adds navigation overhead for a task that should stay lightweight.
+5. Keep add/edit lightweight and immediate.
+   - A dialog or bottom sheet is the right level of interaction for saving a station.
+   - Users should be able to add a station with minimal typing and minimal cognitive load.
+   - If the user already knows the stream URL, the flow should feel quick and direct.
+
+6. Use explicit reorder affordances.
+   - Up/down controls are easier to understand than hidden gestures for this use case.
+   - The goal is not advanced list editing; the goal is "make my favorite station easier to tap next time."
+
+## Proposed UX Shape
+
+### Listening-Focused Header
+- Show a prominent listening entry area near the top.
+- If something is playing, show the current station and a clear play/pause state.
+- If nothing is playing, show a friendly prompt that makes the next action obvious, such as starting a station or adding one the user likes.
+
+### Quick Add Entry Point
+- Keep an always-visible add action near the top of the screen.
+- The copy should emphasize personal choice, e.g. "Add a station you want to hear."
+- The add flow should feel like the user is saving a listening preference, not filling out a form.
+
+### Discovery-First Quick Add
+- If the user does not already know a station name or stream URL, the app should reduce friction by starting from listening choices instead of data entry.
+- The first screen of the add flow should offer a small number of clear paths:
+  - recommended stations based on locale, language, or broad region,
+  - search by station name or keyword,
+  - and a manual advanced entry path for users who already know the stream URL.
+- Recommendations should feel like a helpful starting point, not a mandatory profile setup step.
+- If location is used at all, it should be approximate and optional, with a preference for locale, language, or region defaults before asking for precise GPS access.
+
+### Preview Before Save
+- Users should be able to tap a station, start playback immediately, and then save it if they like it.
+- Saving should happen after discovery and preview, so the flow feels like "I found something good and want to keep it."
+- The UI should make the difference between "play once" and "save for later" obvious, but keep both actions one tap away.
+- A station that is already playing can surface a lightweight save action in the same context.
+
+### Helpful Defaults for Unknown Stations
+- When the user does not know what to choose, the app should still give them something pleasant to start with.
+- Suggested defaults can include:
+  - the most popular stations for the user's broad region,
+  - stations in the current app language,
+  - or a short curated list of easy-to-try stations.
+- The goal is to let the user hear something quickly, then decide whether it is worth saving.
+
+### Primary Station List
+- Stations should be listed in the order that best supports listening.
+- The list should make it easy to tap play first, then optionally manage the station.
+- Rows should visually suggest "this is something to listen to now", not just "this is a record in a database."
+
+### Secondary Management Actions
+- Edit and delete should remain available, but secondary to playback.
+- Reorder should exist for convenience, not as the dominant interaction.
+- A long-press or overflow menu can be used if it keeps the default view calmer.
+
+### Future Listening Utilities
+- Time-based features such as scheduled start or scheduled stop can be valuable, but they should be treated as follow-up listening utilities rather than the core add flow.
+- These features are better suited for later enhancement once the main quick-add and playback flow is already effortless.
+- They should not block the simpler experience of discovering a station, previewing it, and saving it.
 
 ## Risks / Trade-offs
 
-- [Risk] Reordering and refresh may compete for the same rows. → [Mitigation] Centralize all sort-order writes in the domain layer and keep repository refresh behavior order-preserving.
-- [Risk] Custom station URLs may be invalid or unplayable. → [Mitigation] Validate required fields before save and surface clear error messages in the add/edit flow.
-- [Risk] Manual edits to synced RadioBrowser stations could be overwritten on the next refresh. → [Mitigation] Keep the first version focused on custom stations plus ordering, and decide later whether synced stations are editable.
-- [Risk] Drag-and-drop list reordering can be fiddly in Compose. → [Mitigation] Fall back to explicit move controls if gesture handling becomes too expensive or brittle.
+- [Risk] If reorder is too prominent, the screen starts to feel like an admin tool instead of a listening hub.
+  - [Mitigation] Keep play actions dominant and move management into secondary affordances.
+- [Risk] If the add flow is too minimal, it may not feel welcoming for users discovering stations on the fly.
+  - [Mitigation] Use friendly copy and fast entry patterns, not a dense form.
+- [Risk] If custom stations and RadioBrowser stations are treated identically, the user may not understand what they personally control.
+  - [Mitigation] Visually distinguish "saved by me" from "browsed from source" where needed.
+- [Risk] Reordering can still be fiddly if the list gets crowded.
+  - [Mitigation] Prefer explicit controls over complex drag gestures for MVP.
 
 ## Migration Plan
 
 - No database migration is expected because the existing radio schema already includes `sort_order`.
-- Add the new use cases and UI state first, then wire the Radio screen to them.
-- Verify that the merged radio list still loads from cache first and that custom stations survive a refresh cycle.
-- Rollback is straightforward: remove the new UI entry points and use cases while leaving the existing repository and playback flow intact.
+- The UI can be refocused without changing the underlying data model.
+- If any follow-up work is needed, it should mostly be in how the screen presents listening versus management, not in how stations are stored.
 
 ## Open Questions
 
-- Should editing apply only to custom stations, or also to RadioBrowser-synced stations?
-- Should reordering apply to the full radio list, or only to user-created stations?
-- Should favorites always stay above ordered stations, or should user order take priority over favorite sorting?
+- Should the first visible radio section be "Now Playing" or "Quick Add" when nothing is playing?
+- Should the list visually separate "my saved stations" from browsed stations?
+- Should management controls be hidden behind overflow actions by default, or shown inline but de-emphasized?

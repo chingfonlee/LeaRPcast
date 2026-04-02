@@ -1,0 +1,4382 @@
+{
+  "meta": {
+    "source_file": "TaiwanRadio.txt",
+    "total_station_count": 160,
+    "taiwan_radio_count": 132,
+    "online_music_count": 28,
+    "recommended_default_tab": "favorites",
+    "generated_on": "2026-04-02",
+    "dedupe_applied": true,
+    "removed_duplicate_count": 7
+  },
+  "schema": {
+    "id": "唯一識別碼",
+    "name": "主顯示名稱，列表主標題",
+    "display_name": "完整顯示名稱，保留頻率與說明",
+    "display_frequency": "顯示給 UI 的頻率字串，如 FM 98.1",
+    "frequency": "頻率數字字串",
+    "band": "FM / AM",
+    "network": "聯播網或品牌群組",
+    "region": "地區",
+    "category": "內容類別代碼",
+    "media_type": "radio / tv_stream / online_music",
+    "source_group": "taiwan_radio / music_stream",
+    "ui_primary_group": "UI 第一層分類",
+    "ui_secondary_group": "UI 第二層分類，通常是聯播網或地區",
+    "favorite_default": "預設收藏狀態",
+    "search_keywords": "前端搜尋可用關鍵字",
+    "stream_url": "串流連結",
+    "aliases": "合併後保留的別名清單（可選）",
+    "merged_from_ids": "此次合併移除的舊站點 id 清單（可選）"
+  },
+  "ui_taxonomy": {
+    "top_tabs": [
+      {
+        "id": "favorites",
+        "label": "我的收藏",
+        "type": "dynamic"
+      },
+      {
+        "id": "recent",
+        "label": "最近收聽",
+        "type": "dynamic"
+      },
+      {
+        "id": "all",
+        "label": "全部電台",
+        "type": "static"
+      },
+      {
+        "id": "networks",
+        "label": "聯播網",
+        "type": "static"
+      },
+      {
+        "id": "music_streams",
+        "label": "網路音樂",
+        "type": "static"
+      }
+    ],
+    "filter_chips": [
+      {
+        "id": "all",
+        "label": "全部"
+      },
+      {
+        "id": "favorites",
+        "label": "收藏"
+      },
+      {
+        "id": "recent",
+        "label": "最近"
+      },
+      {
+        "id": "news_talk",
+        "label": "新聞"
+      },
+      {
+        "id": "music",
+        "label": "音樂"
+      },
+      {
+        "id": "public_service",
+        "label": "公共"
+      },
+      {
+        "id": "education_campus",
+        "label": "校園"
+      },
+      {
+        "id": "language_culture",
+        "label": "客語／原民"
+      },
+      {
+        "id": "religion_spiritual",
+        "label": "宗教"
+      },
+      {
+        "id": "network",
+        "label": "聯播網"
+      },
+      {
+        "id": "region",
+        "label": "地區"
+      }
+    ],
+    "browse_sections": [
+      {
+        "id": "news_talk",
+        "label": "新聞與談話",
+        "count": 6,
+        "station_ids": [
+          "news98-fm-98-1-e4a7ea",
+          "fm-96-7-ca4383",
+          "6d93a9",
+          "fm-93-7-5d96ad",
+          "f144bb",
+          "china-broadcast-news-f55bd1"
+        ]
+      },
+      {
+        "id": "music",
+        "label": "音樂",
+        "count": 6,
+        "station_ids": [
+          "54539e",
+          "i-radio-fm-96-3-023bc3",
+          "i-like-radio-041f55",
+          "family977-fm-97-7-cf4a26",
+          "fm-96-9-07db71",
+          "fm-97-7-522f79"
+        ]
+      },
+      {
+        "id": "public_service",
+        "label": "公共服務",
+        "count": 14,
+        "station_ids": [
+          "1806c6",
+          "1c279b",
+          "fm-94-3-f75d40",
+          "fm-93-1-22a8a6",
+          "am-1134-8be2c3",
+          "88a8d7",
+          "889ff1",
+          "60afe9",
+          "0a5dd1",
+          "f0dc76",
+          "726fcc",
+          "e68497",
+          "7a9a50",
+          "cf8717"
+        ]
+      },
+      {
+        "id": "education_campus",
+        "label": "教育校園",
+        "count": 8,
+        "station_ids": [
+          "fm-88-1-77731c",
+          "am-729-0ad302",
+          "fm-900272",
+          "fm-88-5-be75d0",
+          "ogg-fm-88-7-191760",
+          "82b606",
+          "fm-88-3-cfd236",
+          "vota-fm-88-3-5808ca"
+        ]
+      },
+      {
+        "id": "language_culture",
+        "label": "語言文化",
+        "count": 4,
+        "station_ids": [
+          "alian-96-3-9b03fc",
+          "fm-105-9-e5da2c",
+          "fm-93-5-167328",
+          "fm-93-7-342d0e"
+        ]
+      },
+      {
+        "id": "religion_spiritual",
+        "label": "宗教心靈",
+        "count": 7,
+        "station_ids": [
+          "ff9c53",
+          "f55c90",
+          "stars-radio-be45d5",
+          "ccm-fm-90-9-50ca8d",
+          "a51f13",
+          "knls-f8204b",
+          "fm-91-1-362694"
+        ]
+      },
+      {
+        "id": "local_general",
+        "label": "地方綜合",
+        "count": 85,
+        "station_ids": [
+          "ic-fm-97-5-9ad5c7",
+          "asiafm-fm-92-7-cbc9b4",
+          "asiafm-fm-92-3-db4f6d",
+          "asiafm-fm-89-5-dc957c",
+          "fm-90-3-8b3f07",
+          "gogoradio-fm-104-3-ab9b55",
+          "needs-radio-85ea26",
+          "fm-104-1-b7abd3",
+          "1-ef01b5",
+          "2-72f04e",
+          "mradio-ac9ace",
+          "fm-90-9-0627c6",
+          "i-go-531-78ca90",
+          "3b27eb",
+          "cc8d64",
+          "53bc6a",
+          "fm-90-1-98d66d",
+          "fm-98-3-9944a5",
+          "929-fm-92-9-3e0421",
+          "fm-97-1-e80b80",
+          "fm-91-5-3ddd82",
+          "fm-88-7-5681d3",
+          "fm-100-7-f9f582",
+          "fm-89-1-6514d8",
+          "fm-92-1-a0633a",
+          "b51b09",
+          "fm-102-5-e4aa1c",
+          "fm-90-5-247990",
+          "fm-97-9-0fc2da",
+          "fm-107-1-6f753b",
+          "fm-101-1-e4bde3",
+          "fm-98-7-ddd52c",
+          "fm-90-3-32d915",
+          "fm-106-3-689ef9",
+          "fm-107-1-cd931b",
+          "fm-97-9-e6b05c",
+          "fm-90-5-22409b",
+          "fm-92-5-2c2520",
+          "fm-90-9-9e3e0c",
+          "fm-91-3-44d13d",
+          "fm-106-3-9196f7",
+          "fm-90-5-a0a77d",
+          "fm-92-3-cdf9cb",
+          "fm-99-1-02ea73",
+          "fm-96-9-28b4c2",
+          "fm-88-9-0add8c",
+          "am-810-486f06",
+          "fm-89-3-5a0b74",
+          "fm-98-5-a1cca2",
+          "am-1179-be2567",
+          "fm-97-9-911cdc",
+          "fm-88-7-4660aa",
+          "fm-91-3-e32f91",
+          "fm-97-3-d2e05e",
+          "fm-91-7-e880b0",
+          "fm-93-3-03c27f",
+          "fm-99-3-c0ceb0",
+          "am-1242-a74627",
+          "am-1044-f385cc",
+          "am-1404-b3935a",
+          "fm-99-5-c6b643",
+          "fm-98-3-33b3b3",
+          "fm-97-1-66835f",
+          "am-963-dd369d",
+          "am-630-1a6e5d",
+          "am-756-fc8a8e",
+          "fm-98-7-d42b05",
+          "fm-89-1-b5c83f",
+          "am-1071-59a380",
+          "am-774-9ba6ea",
+          "am-954-03ad9f",
+          "fm-99-7-ef41a2",
+          "am-1188-4ea519",
+          "am-801-dbf9e8",
+          "am-1323-e0b56a",
+          "am-1296-cd94bb",
+          "brovo-fm-91-3-b05c17",
+          "fm-102-5-ee1bd6",
+          "am-1188-d164ac",
+          "am-855-5d68db",
+          "am-819-0bb4cf",
+          "am-774-f11d0c",
+          "am-621-1b5ad6",
+          "am-1062-b9df62",
+          "fm-106-3-240011"
+        ]
+      },
+      {
+        "id": "online_radio",
+        "label": "網路廣播",
+        "count": 2,
+        "station_ids": [
+          "8d398b",
+          "4619ab"
+        ]
+      },
+      {
+        "id": "online_music",
+        "label": "網路音樂",
+        "count": 10,
+        "station_ids": [
+          "gojoy-a8862c",
+          "boss-online-radio-9eb3ba",
+          "taiwan-lounge-radio-e4bfdc",
+          "1766-887095",
+          "1766-8be191",
+          "5eaf4c",
+          "bigbradio-kpop-11a786",
+          "bigbradio-jpop-c0c0a6",
+          "bigbradio-cpop-3c932e",
+          "bigbradio-apop-e168e2"
+        ]
+      },
+      {
+        "id": "acg_music",
+        "label": "ACG 動漫音樂",
+        "count": 15,
+        "station_ids": [
+          "phate-io-6f98ea",
+          "mt-radio-acg-667f28",
+          "vocaloidradio-acg-0a78ee",
+          "japanimradio-acg-a0eb5b",
+          "box-weeb-anime-network-acg-3399b1",
+          "stereoanime-net-acg-9e998f",
+          "anime-fm-acg-9a908d",
+          "animeradio-de-acg-2fe889",
+          "radio-anime-nexus-acg-386b31",
+          "gensokyo-radio-64kbps-761790",
+          "gensokyo-radio-128kbps-1ca0aa",
+          "gensokyo-radio-256kbps-3995df",
+          "goradio-gr-greek-otaku-radio-acg-80dd26",
+          "otaku-s-radio-acg-3f7a19",
+          "chiru-no-acg-ebc4e6"
+        ]
+      },
+      {
+        "id": "specialty_music",
+        "label": "特色音樂",
+        "count": 2,
+        "station_ids": [
+          "ottava-64f226",
+          "retro-pc-game-music-streaming-radio-6030fb"
+        ]
+      },
+      {
+        "id": "talk",
+        "label": "知識/談話",
+        "count": 1,
+        "station_ids": [
+          "1766-97ee41"
+        ]
+      }
+    ],
+    "network_sections": [
+      {
+        "id": "network",
+        "label": "微微笑廣播網",
+        "count": 13,
+        "station_ids": [
+          "fm-97-9-0fc2da",
+          "fm-107-1-6f753b",
+          "fm-101-1-e4bde3",
+          "fm-98-7-ddd52c",
+          "fm-90-3-32d915",
+          "fm-106-3-689ef9",
+          "fm-107-1-cd931b",
+          "fm-97-9-e6b05c",
+          "fm-90-5-22409b",
+          "fm-92-5-2c2520",
+          "fm-90-9-9e3e0c",
+          "fm-91-3-44d13d",
+          "fm-106-3-9196f7"
+        ]
+      },
+      {
+        "id": "network",
+        "label": "中廣",
+        "count": 6,
+        "station_ids": [
+          "china-broadcast-news-f55bd1",
+          "i-radio-fm-96-3-023bc3",
+          "i-like-radio-041f55",
+          "i-go-531-78ca90",
+          "3b27eb",
+          "fm-100-7-f9f582"
+        ]
+      },
+      {
+        "id": "bigbradio",
+        "label": "BigBRadio",
+        "count": 4,
+        "station_ids": [
+          "bigbradio-kpop-11a786",
+          "bigbradio-jpop-c0c0a6",
+          "bigbradio-cpop-3c932e",
+          "bigbradio-apop-e168e2"
+        ]
+      },
+      {
+        "id": "network",
+        "label": "寶島聯播網",
+        "count": 4,
+        "station_ids": [
+          "fm-92-3-cdf9cb",
+          "fm-99-1-02ea73",
+          "fm-96-9-28b4c2",
+          "fm-91-3-e32f91"
+        ]
+      },
+      {
+        "id": "1766",
+        "label": "1766網路廣播電台",
+        "count": 3,
+        "station_ids": [
+          "1766-97ee41",
+          "1766-887095",
+          "1766-8be191"
+        ]
+      },
+      {
+        "id": "asiafm",
+        "label": "ASIAFM",
+        "count": 3,
+        "station_ids": [
+          "asiafm-fm-92-7-cbc9b4",
+          "asiafm-fm-92-3-db4f6d",
+          "asiafm-fm-89-5-dc957c"
+        ]
+      },
+      {
+        "id": "gensokyo-radio",
+        "label": "Gensokyo Radio",
+        "count": 3,
+        "station_ids": [
+          "gensokyo-radio-64kbps-761790",
+          "gensokyo-radio-128kbps-1ca0aa",
+          "gensokyo-radio-256kbps-3995df"
+        ]
+      },
+      {
+        "id": "network",
+        "label": "正聲",
+        "count": 3,
+        "station_ids": [
+          "fm-104-1-b7abd3",
+          "54539e",
+          "am-819-0bb4cf"
+        ]
+      },
+      {
+        "id": "network",
+        "label": "世新廣播電台",
+        "count": 2,
+        "station_ids": [
+          "fm-88-1-77731c",
+          "am-729-0ad302"
+        ]
+      },
+      {
+        "id": "network",
+        "label": "中央廣播電臺",
+        "count": 2,
+        "station_ids": [
+          "1806c6",
+          "1c279b"
+        ]
+      },
+      {
+        "id": "network",
+        "label": "佛衛慈悲台",
+        "count": 2,
+        "station_ids": [
+          "ff9c53",
+          "f55c90"
+        ]
+      },
+      {
+        "id": "network",
+        "label": "臺北廣播電臺",
+        "count": 2,
+        "station_ids": [
+          "fm-93-1-22a8a6",
+          "am-1134-8be2c3"
+        ]
+      },
+      {
+        "id": "network",
+        "label": "鳳鳴廣播電台",
+        "count": 2,
+        "station_ids": [
+          "1-ef01b5",
+          "2-72f04e"
+        ]
+      }
+    ],
+    "region_sections": [
+      {
+        "id": "region",
+        "label": "台北",
+        "count": 9,
+        "station_ids": [
+          "fm-93-1-22a8a6",
+          "am-1134-8be2c3",
+          "88a8d7",
+          "fm-900272",
+          "fm-90-1-98d66d",
+          "fm-107-1-6f753b",
+          "am-1323-e0b56a",
+          "am-1188-d164ac",
+          "am-819-0bb4cf"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "台中",
+        "count": 4,
+        "station_ids": [
+          "889ff1",
+          "929-fm-92-9-3e0421",
+          "fm-100-7-f9f582",
+          "fm-106-3-689ef9"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "台南",
+        "count": 4,
+        "station_ids": [
+          "60afe9",
+          "fm-97-1-e80b80",
+          "fm-97-9-e6b05c",
+          "fm-99-7-ef41a2"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "新竹",
+        "count": 4,
+        "station_ids": [
+          "ic-fm-97-5-9ad5c7",
+          "726fcc",
+          "fm-90-3-32d915",
+          "fm-97-9-911cdc"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "花蓮",
+        "count": 4,
+        "station_ids": [
+          "e68497",
+          "fm-90-5-247990",
+          "am-1242-a74627",
+          "am-1044-f385cc"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "嘉義",
+        "count": 3,
+        "station_ids": [
+          "fm-107-1-cd931b",
+          "fm-91-3-e32f91",
+          "fm-91-7-e880b0"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "宜蘭",
+        "count": 3,
+        "station_ids": [
+          "fm-90-3-8b3f07",
+          "f0dc76",
+          "fm-97-9-0fc2da"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "屏東",
+        "count": 3,
+        "station_ids": [
+          "fm-92-5-2c2520",
+          "fm-90-9-9e3e0c",
+          "fm-91-3-44d13d"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "桃園",
+        "count": 3,
+        "station_ids": [
+          "gogoradio-fm-104-3-ab9b55",
+          "fm-101-1-e4bde3",
+          "fm-98-7-ddd52c"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "高雄",
+        "count": 3,
+        "station_ids": [
+          "fm-94-3-f75d40",
+          "0a5dd1",
+          "fm-90-5-22409b"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "南投",
+        "count": 2,
+        "station_ids": [
+          "am-963-dd369d",
+          "am-630-1a6e5d"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "高屏",
+        "count": 2,
+        "station_ids": [
+          "fm-92-1-a0633a",
+          "fm-96-9-28b4c2"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "中區",
+        "count": 1,
+        "station_ids": [
+          "fm-99-1-02ea73"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "台東",
+        "count": 1,
+        "station_ids": [
+          "7a9a50"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "基北",
+        "count": 1,
+        "station_ids": [
+          "fm-92-3-cdf9cb"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "澎湖",
+        "count": 1,
+        "station_ids": [
+          "am-756-fc8a8e"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "苗栗",
+        "count": 1,
+        "station_ids": [
+          "fm-88-9-0add8c"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "金門",
+        "count": 1,
+        "station_ids": [
+          "fm-106-3-9196f7"
+        ]
+      },
+      {
+        "id": "region",
+        "label": "雲嘉",
+        "count": 1,
+        "station_ids": [
+          "fm-93-3-03c27f"
+        ]
+      }
+    ]
+  },
+  "dedupe_candidates": [],
+  "stations": [
+    {
+      "id": "news98-fm-98-1-e4a7ea",
+      "name": "九八新聞台 News98",
+      "display_name": "九八新聞台 News98 FM 98.1",
+      "frequency": "98.1",
+      "band": "FM",
+      "network": "News98",
+      "region": null,
+      "category": "news_talk",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/pntx1639ntzuv.m4a",
+      "ui_primary_group": "新聞與談話",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 98.1",
+      "favorite_default": false,
+      "search_keywords": [
+        "98.1",
+        "FM",
+        "News98",
+        "九八新聞台 News98",
+        "九八新聞台 News98 FM 98.1"
+      ]
+    },
+    {
+      "id": "fm-96-7-ca4383",
+      "name": "環宇廣播電台",
+      "display_name": "FM 96.7 環宇廣播電台",
+      "frequency": "96.7",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "news_talk",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/srn5f9kmwxhvv",
+      "ui_primary_group": "新聞與談話",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 96.7",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "環宇廣播電台",
+        "FM 96.7 環宇廣播電台",
+        "96.7"
+      ]
+    },
+    {
+      "id": "ic-fm-97-5-9ad5c7",
+      "name": "IC之音竹科廣播",
+      "display_name": "IC之音竹科廣播 FM97.5",
+      "frequency": "97.5",
+      "band": "FM",
+      "network": null,
+      "region": "新竹",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://n10.rcs.revma.com/7mnq8rt7k5zuv",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "新竹",
+      "display_frequency": "FM 97.5",
+      "favorite_default": false,
+      "search_keywords": [
+        "IC之音竹科廣播 FM97.5",
+        "新竹",
+        "FM",
+        "97.5",
+        "IC之音竹科廣播"
+      ]
+    },
+    {
+      "id": "6d93a9",
+      "name": "飛碟聯播網",
+      "display_name": "飛碟聯播網",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "news_talk",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/em90w4aeewzuv",
+      "ui_primary_group": "新聞與談話",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "飛碟聯播網"
+      ]
+    },
+    {
+      "id": "asiafm-fm-92-7-cbc9b4",
+      "name": "ASIAFM 亞洲電台",
+      "display_name": "ASIAFM 亞洲電台 FM92.7",
+      "frequency": "92.7",
+      "band": "FM",
+      "network": "ASIAFM",
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/xpgtqc74hv8uv",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "ASIAFM",
+      "display_frequency": "FM 92.7",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "92.7",
+        "ASIAFM 亞洲電台 FM92.7",
+        "ASIAFM 亞洲電台",
+        "ASIAFM"
+      ]
+    },
+    {
+      "id": "asiafm-fm-92-3-db4f6d",
+      "name": "ASIAFM 亞太電台",
+      "display_name": "ASIAFM 亞太電台 FM92.3",
+      "frequency": "92.3",
+      "band": "FM",
+      "network": "ASIAFM",
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/kydend74hv8uv",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "ASIAFM",
+      "display_frequency": "FM 92.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "ASIAFM 亞太電台",
+        "FM",
+        "92.3",
+        "ASIAFM 亞太電台 FM92.3",
+        "ASIAFM"
+      ]
+    },
+    {
+      "id": "asiafm-fm-89-5-dc957c",
+      "name": "ASIAFM 飛揚調頻",
+      "display_name": "ASIAFM 飛揚調頻 FM89.5",
+      "frequency": "89.5",
+      "band": "FM",
+      "network": "ASIAFM",
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/e0tdah74hv8uv",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "ASIAFM",
+      "display_frequency": "FM 89.5",
+      "favorite_default": false,
+      "search_keywords": [
+        "89.5",
+        "FM",
+        "ASIAFM 飛揚調頻",
+        "ASIAFM 飛揚調頻 FM89.5",
+        "ASIAFM"
+      ]
+    },
+    {
+      "id": "fm-88-1-77731c",
+      "name": "世新廣播電台",
+      "display_name": "世新廣播電台 fm88.1",
+      "frequency": "88.1",
+      "band": "FM",
+      "network": "世新廣播電台",
+      "region": null,
+      "category": "education_campus",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.ginnet.cloud/live0115lo-89xv/_definst_/fm881/playlist.m3u8",
+      "ui_primary_group": "教育校園",
+      "ui_secondary_group": "世新廣播電台",
+      "display_frequency": "FM 88.1",
+      "favorite_default": false,
+      "search_keywords": [
+        "88.1",
+        "世新廣播電台",
+        "世新廣播電台 fm88.1",
+        "FM"
+      ]
+    },
+    {
+      "id": "am-729-0ad302",
+      "name": "世新廣播電台",
+      "display_name": "世新廣播電台 am729",
+      "frequency": "729",
+      "band": "AM",
+      "network": "世新廣播電台",
+      "region": null,
+      "category": "education_campus",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.ginnet.cloud/live0115lo-89xv/_definst_/am729/playlist.m3u8",
+      "ui_primary_group": "教育校園",
+      "ui_secondary_group": "世新廣播電台",
+      "display_frequency": "AM 729",
+      "favorite_default": false,
+      "search_keywords": [
+        "世新廣播電台 am729",
+        "世新廣播電台",
+        "AM",
+        "729"
+      ]
+    },
+    {
+      "id": "1806c6",
+      "name": "中央廣播電台 華語",
+      "display_name": "Rti 中央廣播電台 華語",
+      "frequency": null,
+      "band": null,
+      "network": "中央廣播電臺",
+      "region": null,
+      "category": "public_service",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://streamak0138.akamaized.net/live0138lh-mbm9/_definst_/rti3/playlist.m3u8",
+      "ui_primary_group": "公共服務",
+      "ui_secondary_group": "中央廣播電臺",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "中央廣播電臺",
+        "中央廣播電台 華語",
+        "Rti 中央廣播電台 華語"
+      ]
+    },
+    {
+      "id": "1c279b",
+      "name": "中央廣播電台 台客粵語和歐美外語",
+      "display_name": "Rti 中央廣播電台 - 台客粵語和歐美外語",
+      "frequency": null,
+      "band": null,
+      "network": "中央廣播電臺",
+      "region": null,
+      "category": "public_service",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://streamak0138.akamaized.net/live0138lh-mbm9/_definst_/rti6/playlist.m3u8",
+      "ui_primary_group": "公共服務",
+      "ui_secondary_group": "中央廣播電臺",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "中央廣播電臺",
+        "中央廣播電台 台客粵語和歐美外語",
+        "Rti 中央廣播電台 - 台客粵語和歐美外語"
+      ]
+    },
+    {
+      "id": "alian-96-3-9b03fc",
+      "name": "Alian 96.3 廣播 原住民族文化事業基金會",
+      "display_name": "Alian 96.3 廣播 原住民族文化事業基金會",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "language_culture",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://streamipcf2.akamaized.net/live2/_definst_/fm963/playlist.m3u8?cuac=guest&cref=https%3A%2F%2Fwww.ipcf.org.tw%2F",
+      "ui_primary_group": "語言文化",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "Alian 96.3 廣播 原住民族文化事業基金會"
+      ]
+    },
+    {
+      "id": "ff9c53",
+      "name": "佛衛慈悲台 站點一(電視)",
+      "display_name": "佛衛慈悲台 站點一(電視)",
+      "frequency": null,
+      "band": null,
+      "network": "佛衛慈悲台",
+      "region": null,
+      "category": "religion_spiritual",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://btsu4k5-hisng.cdn.hinet.net/live/pool/btsLive2/hievent-hls/btsLive2.m3u8",
+      "ui_primary_group": "宗教心靈",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "佛衛慈悲台",
+        "佛衛慈悲台 站點一(電視)"
+      ]
+    },
+    {
+      "id": "f55c90",
+      "name": "佛衛慈悲台 站點二(電視)",
+      "display_name": "佛衛慈悲台 站點二(電視)",
+      "frequency": null,
+      "band": null,
+      "network": "佛衛慈悲台",
+      "region": null,
+      "category": "religion_spiritual",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://btsw-ott2b.cdn.hinet.net/live_bts/btsw01/playlist.m3u8",
+      "ui_primary_group": "宗教心靈",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "佛衛慈悲台",
+        "佛衛慈悲台 站點二(電視)"
+      ]
+    },
+    {
+      "id": "fm-105-9-e5da2c",
+      "name": "講客廣播電台",
+      "display_name": "講客廣播電台 FM 105.9",
+      "frequency": "105.9",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "language_culture",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/akqrbx94gbkvv",
+      "ui_primary_group": "語言文化",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 105.9",
+      "favorite_default": false,
+      "search_keywords": [
+        "講客廣播電台",
+        "105.9",
+        "講客廣播電台 FM 105.9",
+        "FM"
+      ]
+    },
+    {
+      "id": "fm-93-7-5d96ad",
+      "name": "領袖廣播電台",
+      "display_name": "領袖廣播電台 FM93.7",
+      "frequency": "93.7",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "news_talk",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/hpeqh9mkc6hvv",
+      "ui_primary_group": "新聞與談話",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 93.7",
+      "favorite_default": false,
+      "search_keywords": [
+        "93.7",
+        "FM",
+        "領袖廣播電台",
+        "領袖廣播電台 FM93.7"
+      ]
+    },
+    {
+      "id": "fm-90-3-8b3f07",
+      "name": "羅東廣播電台",
+      "display_name": "羅東廣播電台 FM 90.3",
+      "frequency": "90.3",
+      "band": "FM",
+      "network": null,
+      "region": "宜蘭",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.ginnet.cloud/live0119lo-p4rb/_definst_/fm903/playlist.m3u8",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "宜蘭",
+      "display_frequency": "FM 90.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "90.3",
+        "FM",
+        "FM 90.3 羅東電台",
+        "宜蘭",
+        "羅東廣播電台 - FM 90.3",
+        "羅東廣播電台 FM 90.3",
+        "羅東電台"
+      ],
+      "aliases": [
+        "FM 90.3 羅東電台",
+        "羅東廣播電台 - FM 90.3"
+      ],
+      "merged_from_ids": [
+        "fm-90-3-6a7a4c"
+      ]
+    },
+    {
+      "id": "gogoradio-fm-104-3-ab9b55",
+      "name": "GoGoRadio 桃園",
+      "display_name": "GoGoRadio 桃園 fm104.3",
+      "frequency": "104.3",
+      "band": "FM",
+      "network": null,
+      "region": "桃園",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.ginnet.cloud/live0119lo-p4rb/_definst_/fm1043/playlist.m3u8",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "桃園",
+      "display_frequency": "FM 104.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "GoGoRadio 桃園 fm104.3",
+        "FM",
+        "桃園",
+        "104.3",
+        "GoGoRadio 桃園"
+      ]
+    },
+    {
+      "id": "fm-94-3-f75d40",
+      "name": "高雄廣播電台",
+      "display_name": "高雄廣播電台 FM94.3",
+      "frequency": "94.3",
+      "band": "FM",
+      "network": null,
+      "region": "高雄",
+      "category": "public_service",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/pet2dvug1bkvv/",
+      "ui_primary_group": "公共服務",
+      "ui_secondary_group": "高雄",
+      "display_frequency": "FM 94.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "高雄廣播電台 FM94.3",
+        "94.3",
+        "FM",
+        "高雄廣播電台",
+        "高雄"
+      ]
+    },
+    {
+      "id": "needs-radio-85ea26",
+      "name": "needs RADIO 全球華語廣播網",
+      "display_name": "needs RADIO 全球華語廣播網",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://cdn280.ccdntech.com/live-http/_definst_/vod280_Live/needs/playlist.m3u8",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "needs RADIO 全球華語廣播網"
+      ]
+    },
+    {
+      "id": "fm-93-1-22a8a6",
+      "name": "臺北廣播電臺",
+      "display_name": "臺北廣播電臺 FM 93.1",
+      "frequency": "93.1",
+      "band": "FM",
+      "network": "臺北廣播電臺",
+      "region": "台北",
+      "category": "public_service",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.ginnet.cloud/live0130lo-yfyo/_definst_/fm/playlist.m3u8",
+      "ui_primary_group": "公共服務",
+      "ui_secondary_group": "臺北廣播電臺",
+      "display_frequency": "FM 93.1",
+      "favorite_default": false,
+      "search_keywords": [
+        "93.1",
+        "FM",
+        "台北",
+        "台北廣播電台",
+        "台北廣播電台 93.1",
+        "台北廣播電台-FM 93.1",
+        "臺北廣播電台",
+        "臺北廣播電臺",
+        "臺北廣播電臺 FM 93.1"
+      ],
+      "aliases": [
+        "台北廣播電台 93.1",
+        "台北廣播電台-FM 93.1"
+      ],
+      "merged_from_ids": [
+        "93-1-22a8a6"
+      ]
+    },
+    {
+      "id": "am-1134-8be2c3",
+      "name": "台北廣播電台-原音重現",
+      "display_name": "台北廣播電台-原音重現-AM 1134",
+      "frequency": "1134",
+      "band": "AM",
+      "network": "臺北廣播電臺",
+      "region": "台北",
+      "category": "public_service",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.ginnet.cloud/live0130lo-yfyo/_definst_/am/playlist.m3u8",
+      "ui_primary_group": "公共服務",
+      "ui_secondary_group": "臺北廣播電臺",
+      "display_frequency": "AM 1134",
+      "favorite_default": false,
+      "search_keywords": [
+        "1134",
+        "台北",
+        "臺北廣播電臺",
+        "台北廣播電台-原音重現",
+        "AM",
+        "台北廣播電台-原音重現-AM 1134"
+      ]
+    },
+    {
+      "id": "fm-104-1-b7abd3",
+      "name": "正聲廣播公司",
+      "display_name": "正聲廣播公司 - FM 104.1",
+      "frequency": "104.1",
+      "band": "FM",
+      "network": "正聲",
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://flv.ccdntech.com/live/_definst_/mp4:vod117_Live/live1/playlist.m3u8",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "正聲",
+      "display_frequency": "FM 104.1",
+      "favorite_default": false,
+      "search_keywords": [
+        "正聲廣播公司",
+        "正聲",
+        "FM",
+        "正聲廣播公司 - FM 104.1",
+        "104.1"
+      ]
+    },
+    {
+      "id": "54539e",
+      "name": "正聲音樂派網路電台",
+      "display_name": "正聲音樂派網路電台",
+      "frequency": null,
+      "band": null,
+      "network": "正聲",
+      "region": null,
+      "category": "music",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://flv.ccdntech.com/live/_definst_/mp4:vod117_Live/live2/playlist.m3u8",
+      "ui_primary_group": "音樂",
+      "ui_secondary_group": "正聲",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "正聲音樂派網路電台",
+        "正聲"
+      ]
+    },
+    {
+      "id": "stars-radio-be45d5",
+      "name": "Stars RADIO星蹤之愛廣播網",
+      "display_name": "Stars RADIO星蹤之愛廣播網",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "religion_spiritual",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://cdn280.ccdntech.com/live-http/_definst_/vod280_Live/stars/playlist.m3u8",
+      "ui_primary_group": "宗教心靈",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "Stars RADIO星蹤之愛廣播網"
+      ]
+    },
+    {
+      "id": "f144bb",
+      "name": "警察廣播電台 全國治安交通網",
+      "display_name": "警察廣播電台 全國治安交通網",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "news_talk",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://stream.pbs.gov.tw:1935/live/mp3:PBS/playlist.m3u8",
+      "ui_primary_group": "新聞與談話",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "警察廣播電台 全國治安交通網"
+      ]
+    },
+    {
+      "id": "88a8d7",
+      "name": "警察廣播電台 台北分台",
+      "display_name": "警察廣播電台 台北分台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": "台北",
+      "category": "public_service",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://stream.pbs.gov.tw:1935/live/TPS/playlist.m3u8",
+      "ui_primary_group": "公共服務",
+      "ui_secondary_group": "台北",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "警察廣播電台 台北分台",
+        "台北"
+      ]
+    },
+    {
+      "id": "889ff1",
+      "name": "警察廣播電台 台中分台",
+      "display_name": "警察廣播電台 台中分台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": "台中",
+      "category": "public_service",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.pbs.gov.tw/live/TCS/playlist.m3u8",
+      "ui_primary_group": "公共服務",
+      "ui_secondary_group": "台中",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "警察廣播電台 台中分台",
+        "台中"
+      ]
+    },
+    {
+      "id": "60afe9",
+      "name": "警察廣播電台 台南分台",
+      "display_name": "警察廣播電台 台南分台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": "台南",
+      "category": "public_service",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.pbs.gov.tw/live/TNS/playlist.m3u8",
+      "ui_primary_group": "公共服務",
+      "ui_secondary_group": "台南",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "警察廣播電台 台南分台",
+        "台南"
+      ]
+    },
+    {
+      "id": "0a5dd1",
+      "name": "警察廣播電台 高雄分台",
+      "display_name": "警察廣播電台 高雄分台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": "高雄",
+      "category": "public_service",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.pbs.gov.tw/live/KSS/playlist.m3u8",
+      "ui_primary_group": "公共服務",
+      "ui_secondary_group": "高雄",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "警察廣播電台 高雄分台",
+        "高雄"
+      ]
+    },
+    {
+      "id": "f0dc76",
+      "name": "警察廣播電台 宜蘭分台",
+      "display_name": "警察廣播電台 宜蘭分台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": "宜蘭",
+      "category": "public_service",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.pbs.gov.tw/live/ELS/playlist.m3u8",
+      "ui_primary_group": "公共服務",
+      "ui_secondary_group": "宜蘭",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "宜蘭",
+        "警察廣播電台 宜蘭分台"
+      ]
+    },
+    {
+      "id": "726fcc",
+      "name": "警察廣播電台 新竹分台",
+      "display_name": "警察廣播電台 新竹分台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": "新竹",
+      "category": "public_service",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.pbs.gov.tw/live/SCS/playlist.m3u8",
+      "ui_primary_group": "公共服務",
+      "ui_secondary_group": "新竹",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "新竹",
+        "警察廣播電台 新竹分台"
+      ]
+    },
+    {
+      "id": "e68497",
+      "name": "警察廣播電台 花蓮分台",
+      "display_name": "警察廣播電台 花蓮分台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": "花蓮",
+      "category": "public_service",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.pbs.gov.tw/live/HLS/playlist.m3u8",
+      "ui_primary_group": "公共服務",
+      "ui_secondary_group": "花蓮",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "花蓮",
+        "警察廣播電台 花蓮分台"
+      ]
+    },
+    {
+      "id": "7a9a50",
+      "name": "警察廣播電台 台東分台",
+      "display_name": "警察廣播電台 台東分台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": "台東",
+      "category": "public_service",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.pbs.gov.tw/live/TTS/playlist.m3u8",
+      "ui_primary_group": "公共服務",
+      "ui_secondary_group": "台東",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "台東",
+        "警察廣播電台 台東分台"
+      ]
+    },
+    {
+      "id": "fm-900272",
+      "name": "國立教育廣播電台 台北總台FM台",
+      "display_name": "國立教育廣播電台 台北總台FM台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": "台北",
+      "category": "education_campus",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://cast.ner.gov.tw/1",
+      "ui_primary_group": "教育校園",
+      "ui_secondary_group": "台北",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "台北",
+        "國立教育廣播電台 台北總台FM台"
+      ]
+    },
+    {
+      "id": "1-ef01b5",
+      "name": "鳳鳴廣播電台 1台",
+      "display_name": "鳳鳴廣播電台 1台",
+      "frequency": null,
+      "band": null,
+      "network": "鳳鳴廣播電台",
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://am981.ddns.net:9005/stream.ogg",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "鳳鳴廣播電台",
+        "鳳鳴廣播電台 1台"
+      ]
+    },
+    {
+      "id": "2-72f04e",
+      "name": "鳳鳴廣播電台 2台",
+      "display_name": "鳳鳴廣播電台 2台",
+      "frequency": null,
+      "band": null,
+      "network": "鳳鳴廣播電台",
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://am1161.ddns.net:9005/stream.ogg",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "鳳鳴廣播電台",
+        "鳳鳴廣播電台 2台"
+      ]
+    },
+    {
+      "id": "mradio-ac9ace",
+      "name": "全國廣播 MRadio",
+      "display_name": "全國廣播 MRadio",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/044q61ha7a0uv",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "全國廣播 MRadio"
+      ]
+    },
+    {
+      "id": "fm-90-9-0627c6",
+      "name": "佳音廣播電台",
+      "display_name": "佳音廣播電台 90.9 FM",
+      "frequency": "90.9",
+      "band": "FM",
+      "network": "佳音廣播電台",
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.ginnet.cloud/live0119lo-p4rb/_definst_/fm909/playlist.m3u8",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 90.9",
+      "favorite_default": false,
+      "search_keywords": [
+        "90.9",
+        "FM",
+        "佳音廣播電台",
+        "佳音廣播電台 90.9 FM"
+      ]
+    },
+    {
+      "id": "ccm-fm-90-9-50ca8d",
+      "name": "佳音聖樂網CCM",
+      "display_name": "佳音聖樂網CCM FM90.9",
+      "frequency": "90.9",
+      "band": "FM",
+      "network": "佳音",
+      "region": null,
+      "category": "religion_spiritual",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.ginnet.cloud/live0119lo-p4rb/_definst_/modern/playlist.m3u8",
+      "ui_primary_group": "宗教心靈",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 90.9",
+      "favorite_default": false,
+      "search_keywords": [
+        "佳音聖樂網CCM FM90.9",
+        "FM",
+        "佳音聖樂網CCM",
+        "90.9",
+        "佳音"
+      ]
+    },
+    {
+      "id": "china-broadcast-news-f55bd1",
+      "name": "中廣新聞網",
+      "display_name": "中廣新聞網",
+      "frequency": null,
+      "band": null,
+      "network": "中廣",
+      "region": null,
+      "category": "news_talk",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/78fm9wyy2tzuv",
+      "ui_primary_group": "新聞與談話",
+      "ui_secondary_group": "中廣",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "China Broadcast News",
+        "中廣",
+        "中廣新聞網",
+        "中廣新聞網 (China Broadcast News)"
+      ],
+      "aliases": [
+        "中廣新聞網 (China Broadcast News)",
+        "中廣新聞網"
+      ],
+      "merged_from_ids": [
+        "8e85a3"
+      ]
+    },
+    {
+      "id": "i-radio-fm-96-3-023bc3",
+      "name": "中廣音樂網 i Radio",
+      "display_name": "中廣音樂網 i Radio FM96.3",
+      "frequency": "96.3",
+      "band": "FM",
+      "network": "中廣",
+      "region": null,
+      "category": "music",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/ndk05tyy2tzuv",
+      "ui_primary_group": "音樂",
+      "ui_secondary_group": "中廣",
+      "display_frequency": "FM 96.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "中廣音樂網 i Radio",
+        "96.3",
+        "FM",
+        "中廣音樂網 i Radio FM96.3",
+        "中廣"
+      ]
+    },
+    {
+      "id": "i-like-radio-041f55",
+      "name": "中廣流行網 I like radio",
+      "display_name": "中廣流行網 I like radio",
+      "frequency": null,
+      "band": null,
+      "network": "中廣",
+      "region": null,
+      "category": "music",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/aw9uqyxy2tzuv",
+      "ui_primary_group": "音樂",
+      "ui_secondary_group": "中廣",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "中廣流行網 I like radio",
+        "中廣"
+      ]
+    },
+    {
+      "id": "i-go-531-78ca90",
+      "name": "中廣 I GO 531",
+      "display_name": "中廣 I GO 531",
+      "frequency": null,
+      "band": null,
+      "network": "中廣",
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/1qxn2vg3qtzuv",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "中廣",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "中廣",
+        "中廣 I GO 531"
+      ]
+    },
+    {
+      "id": "3b27eb",
+      "name": "中廣鄉親網",
+      "display_name": "中廣鄉親網",
+      "frequency": null,
+      "band": null,
+      "network": "中廣",
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/p2e3rfg3qtzuv",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "中廣",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "中廣鄉親網",
+        "中廣"
+      ]
+    },
+    {
+      "id": "cc8d64",
+      "name": "神農廣播股份有限公司",
+      "display_name": "神農廣播股份有限公司",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/uyaghqmdm3hvv",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "神農廣播股份有限公司"
+      ]
+    },
+    {
+      "id": "53bc6a",
+      "name": "曾文溪廣播電台",
+      "display_name": "曾文溪廣播電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/9ssfduqkr0hvv",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "曾文溪廣播電台"
+      ]
+    },
+    {
+      "id": "fm-90-1-98d66d",
+      "name": "台北健康",
+      "display_name": "FM 90.1 台北健康",
+      "frequency": "90.1",
+      "band": "FM",
+      "network": null,
+      "region": "台北",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://fm901.cityfm.tw:8080/901.mp3",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "台北",
+      "display_frequency": "FM 90.1",
+      "favorite_default": false,
+      "search_keywords": [
+        "台北健康",
+        "台北",
+        "FM 90.1 台北健康",
+        "FM",
+        "90.1"
+      ]
+    },
+    {
+      "id": "fm-98-3-9944a5",
+      "name": "城市廣播",
+      "display_name": "FM 98.3 城市廣播",
+      "frequency": "98.3",
+      "band": "FM",
+      "network": "城市廣播",
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://fm983.cityfm.tw:8080/983.mp3",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 98.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "城市廣播",
+        "98.3",
+        "FM",
+        "FM 98.3 城市廣播"
+      ]
+    },
+    {
+      "id": "929-fm-92-9-3e0421",
+      "name": "台中929",
+      "display_name": "FM 92.9 台中929",
+      "frequency": "92.9",
+      "band": "FM",
+      "network": null,
+      "region": "台中",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://fm929.cityfm.tw:8080/929.mp3",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "台中",
+      "display_frequency": "FM 92.9",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM 92.9 台中929",
+        "92.9",
+        "FM",
+        "台中929",
+        "台中"
+      ]
+    },
+    {
+      "id": "fm-97-1-e80b80",
+      "name": "台南知音",
+      "display_name": "FM 97.1 台南知音",
+      "frequency": "97.1",
+      "band": "FM",
+      "network": null,
+      "region": "台南",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://fm971.cityfm.tw:8080/971.mp3",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "台南",
+      "display_frequency": "FM 97.1",
+      "favorite_default": false,
+      "search_keywords": [
+        "台南知音",
+        "97.1",
+        "FM",
+        "台南",
+        "FM 97.1 台南知音"
+      ]
+    },
+    {
+      "id": "family977-fm-97-7-cf4a26",
+      "name": "Family977古典音樂",
+      "display_name": "FM 97.7 Family977古典音樂",
+      "frequency": "97.7",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "music",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://59.120.88.155:8000/live.mp3",
+      "ui_primary_group": "音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 97.7",
+      "favorite_default": false,
+      "search_keywords": [
+        "Family977古典音樂",
+        "97.7",
+        "FM 97.7 Family977古典音樂",
+        "FM"
+      ]
+    },
+    {
+      "id": "fm-91-5-3ddd82",
+      "name": "美聲廣播",
+      "display_name": "FM 91.5 美聲廣播",
+      "frequency": "91.5",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://1.34.23.16:8080/broadwavehigh.mp3",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 91.5",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM 91.5 美聲廣播",
+        "美聲廣播",
+        "FM",
+        "91.5"
+      ]
+    },
+    {
+      "id": "fm-88-5-be75d0",
+      "name": "輔大之聲",
+      "display_name": "FM 88.5 輔大之聲",
+      "frequency": "88.5",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "education_campus",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://140.136.115.115:8000/fjuvoice885.mp3",
+      "ui_primary_group": "教育校園",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 88.5",
+      "favorite_default": false,
+      "search_keywords": [
+        "輔大之聲",
+        "FM 88.5 輔大之聲",
+        "88.5",
+        "FM"
+      ]
+    },
+    {
+      "id": "ogg-fm-88-7-191760",
+      "name": "政大之聲(.ogg)",
+      "display_name": "FM 88.7 政大之聲(.ogg)",
+      "frequency": "88.7",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "education_campus",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://140.119.169.241:8000/ade.taiwan.mp3",
+      "ui_primary_group": "教育校園",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 88.7",
+      "favorite_default": false,
+      "search_keywords": [
+        "政大之聲(.ogg)",
+        "FM",
+        "FM 88.7 政大之聲(.ogg)",
+        "88.7"
+      ]
+    },
+    {
+      "id": "82b606",
+      "name": "東華之聲網路廣播電台",
+      "display_name": "東華之聲網路廣播電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "education_campus",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://radio.ndhu.edu.tw/radio.mp3",
+      "ui_primary_group": "教育校園",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "東華之聲網路廣播電台"
+      ]
+    },
+    {
+      "id": "fm-88-3-cfd236",
+      "name": "銘傳之聲",
+      "display_name": "FM 88.3 銘傳之聲",
+      "frequency": "88.3",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "education_campus",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://radio.mcu.edu.tw:8080/radio",
+      "ui_primary_group": "教育校園",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 88.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "88.3",
+        "銘傳之聲",
+        "FM",
+        "FM 88.3 銘傳之聲"
+      ]
+    },
+    {
+      "id": "fm-88-7-5681d3",
+      "name": "淡江之聲",
+      "display_name": "FM 88.7 淡江之聲",
+      "frequency": "88.7",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://163.13.182.81:8001/votk",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 88.7",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "88.7",
+        "FM 88.7 淡江之聲",
+        "淡江之聲"
+      ]
+    },
+    {
+      "id": "vota-fm-88-3-5808ca",
+      "name": "VOTA台藝之聲",
+      "display_name": "FM 88.3 VOTA台藝之聲",
+      "frequency": "88.3",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "education_campus",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://120.97.105.18:8000/vota",
+      "ui_primary_group": "教育校園",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 88.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "VOTA台藝之聲",
+        "FM",
+        "88.3",
+        "FM 88.3 VOTA台藝之聲"
+      ]
+    },
+    {
+      "id": "fm-100-7-f9f582",
+      "name": "台中廣播",
+      "display_name": "FM 100.7 台中廣播",
+      "frequency": "100.7",
+      "band": "FM",
+      "network": "中廣",
+      "region": "台中",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://211.20.119.101:8081",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "中廣",
+      "display_frequency": "FM 100.7",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM 100.7 台中廣播",
+        "台中",
+        "FM",
+        "中廣",
+        "台中廣播",
+        "100.7"
+      ]
+    },
+    {
+      "id": "fm-89-1-6514d8",
+      "name": "太陽廣播網路",
+      "display_name": "FM 89.1 太陽廣播網路",
+      "frequency": "89.1",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://211.20.119.102:8081/",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 89.1",
+      "favorite_default": false,
+      "search_keywords": [
+        "太陽廣播網路",
+        "FM",
+        "FM 89.1 太陽廣播網路",
+        "89.1"
+      ]
+    },
+    {
+      "id": "fm-92-1-a0633a",
+      "name": "高屏 金聲廣播電台",
+      "display_name": "FM 92.1 高屏 金聲廣播電台",
+      "frequency": "92.1",
+      "band": "FM",
+      "network": null,
+      "region": "高屏",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://60.249.186.105:9000/;?icy=http",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "高屏",
+      "display_frequency": "FM 92.1",
+      "favorite_default": false,
+      "search_keywords": [
+        "高屏",
+        "FM",
+        "FM 92.1 高屏 金聲廣播電台",
+        "高屏 金聲廣播電台",
+        "92.1"
+      ]
+    },
+    {
+      "id": "b51b09",
+      "name": "台灣羚聲",
+      "display_name": "台灣羚聲",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://s4.radio.co/sc6742e54d/listen",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "台灣羚聲"
+      ]
+    },
+    {
+      "id": "fm-102-5-e4aa1c",
+      "name": "幸福電台",
+      "display_name": "FM 102.5 幸福電台",
+      "frequency": "102.5",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://61.218.61.251:8080/",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 102.5",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "幸福電台",
+        "FM 102.5 幸福電台",
+        "102.5"
+      ]
+    },
+    {
+      "id": "fm-90-5-247990",
+      "name": "花蓮希望之聲廣播電台",
+      "display_name": "FM 90.5 花蓮希望之聲廣播電台",
+      "frequency": "90.5",
+      "band": "FM",
+      "network": null,
+      "region": "花蓮",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://61.219.59.31:8081/",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "花蓮",
+      "display_frequency": "FM 90.5",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "花蓮希望之聲廣播電台",
+        "FM 90.5 花蓮希望之聲廣播電台",
+        "花蓮",
+        "90.5"
+      ]
+    },
+    {
+      "id": "fm-97-9-0fc2da",
+      "name": "微微笑廣播網 宜蘭 噶瑪蘭廣播電台",
+      "display_name": "FM 97.9 微微笑廣播網 宜蘭 噶瑪蘭廣播電台",
+      "frequency": "97.9",
+      "band": "FM",
+      "network": "微微笑廣播網",
+      "region": "宜蘭",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://61.220.209.152:8081/",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "微微笑廣播網",
+      "display_frequency": "FM 97.9",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "FM 97.9 微微笑廣播網 宜蘭 噶瑪蘭廣播電台",
+        "微微笑廣播網 宜蘭 噶瑪蘭廣播電台",
+        "97.9",
+        "宜蘭",
+        "微微笑廣播網"
+      ]
+    },
+    {
+      "id": "fm-107-1-6f753b",
+      "name": "微微笑廣播網 台北 北台灣之聲廣播電台",
+      "display_name": "FM 107.1 微微笑廣播網 台北 北台灣之聲廣播電台",
+      "frequency": "107.1",
+      "band": "FM",
+      "network": "微微笑廣播網",
+      "region": "台北",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://211.72.65.62:8080/",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "微微笑廣播網",
+      "display_frequency": "FM 107.1",
+      "favorite_default": false,
+      "search_keywords": [
+        "107.1",
+        "微微笑廣播網 台北 北台灣之聲廣播電台",
+        "台北",
+        "FM",
+        "FM 107.1 微微笑廣播網 台北 北台灣之聲廣播電台",
+        "微微笑廣播網"
+      ]
+    },
+    {
+      "id": "fm-101-1-e4bde3",
+      "name": "微微笑廣播網 桃園 國際廣播電台",
+      "display_name": "FM 101.1 微微笑廣播網 桃園 國際廣播電台",
+      "frequency": "101.1",
+      "band": "FM",
+      "network": "微微笑廣播網",
+      "region": "桃園",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://211.72.65.61:8080/",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "微微笑廣播網",
+      "display_frequency": "FM 101.1",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM 101.1 微微笑廣播網 桃園 國際廣播電台",
+        "FM",
+        "桃園",
+        "101.1",
+        "微微笑廣播網 桃園 國際廣播電台",
+        "微微笑廣播網"
+      ]
+    },
+    {
+      "id": "fm-98-7-ddd52c",
+      "name": "微微笑廣播網 桃園 風城廣播電台",
+      "display_name": "FM 98.7 微微笑廣播網 桃園 風城廣播電台",
+      "frequency": "98.7",
+      "band": "FM",
+      "network": "微微笑廣播網",
+      "region": "桃園",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://61.220.245.236:8080/",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "微微笑廣播網",
+      "display_frequency": "FM 98.7",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "桃園",
+        "98.7",
+        "微微笑廣播網 桃園 風城廣播電台",
+        "FM 98.7 微微笑廣播網 桃園 風城廣播電台",
+        "微微笑廣播網"
+      ]
+    },
+    {
+      "id": "fm-90-3-32d915",
+      "name": "微微笑廣播網 新竹 竹塹廣播電台",
+      "display_name": "FM 90.3 微微笑廣播網 新竹 竹塹廣播電台",
+      "frequency": "90.3",
+      "band": "FM",
+      "network": "微微笑廣播網",
+      "region": "新竹",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://211.72.230.118:8081/",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "微微笑廣播網",
+      "display_frequency": "FM 90.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "新竹",
+        "FM",
+        "FM 90.3 微微笑廣播網 新竹 竹塹廣播電台",
+        "微微笑廣播網 新竹 竹塹廣播電台",
+        "90.3",
+        "微微笑廣播網"
+      ]
+    },
+    {
+      "id": "fm-106-3-689ef9",
+      "name": "微微笑廣播網 台中 歡喜之聲廣播電台",
+      "display_name": "FM 106.3 微微笑廣播網 台中 歡喜之聲廣播電台",
+      "frequency": "106.3",
+      "band": "FM",
+      "network": "微微笑廣播網",
+      "region": "台中",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://59.125.41.65:8081/",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "微微笑廣播網",
+      "display_frequency": "FM 106.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "106.3",
+        "FM",
+        "FM 106.3 微微笑廣播網 台中 歡喜之聲廣播電台",
+        "台中",
+        "微微笑廣播網",
+        "微微笑廣播網 台中 歡喜之聲廣播電台"
+      ]
+    },
+    {
+      "id": "fm-107-1-cd931b",
+      "name": "微微笑廣播網 嘉義 嘉義環球廣播電台",
+      "display_name": "FM 107.1 微微笑廣播網 嘉義 嘉義環球廣播電台",
+      "frequency": "107.1",
+      "band": "FM",
+      "network": "微微笑廣播網",
+      "region": "嘉義",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://60.248.53.115:8081/",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "微微笑廣播網",
+      "display_frequency": "FM 107.1",
+      "favorite_default": false,
+      "search_keywords": [
+        "嘉義",
+        "107.1",
+        "FM 107.1 微微笑廣播網 嘉義 嘉義環球廣播電台",
+        "FM",
+        "微微笑廣播網",
+        "微微笑廣播網 嘉義 嘉義環球廣播電台"
+      ]
+    },
+    {
+      "id": "fm-97-9-e6b05c",
+      "name": "微微笑廣播網 台南 凱旋廣播電台",
+      "display_name": "FM 97.9 微微笑廣播網 台南 凱旋廣播電台",
+      "frequency": "97.9",
+      "band": "FM",
+      "network": "微微笑廣播網",
+      "region": "台南",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://59.125.209.209:8081/",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "微微笑廣播網",
+      "display_frequency": "FM 97.9",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM 97.9 微微笑廣播網 台南 凱旋廣播電台",
+        "微微笑廣播網 台南 凱旋廣播電台",
+        "FM",
+        "97.9",
+        "台南",
+        "微微笑廣播網"
+      ]
+    },
+    {
+      "id": "fm-90-5-22409b",
+      "name": "微微笑廣播網 高雄 下港之聲",
+      "display_name": "FM 90.5 微微笑廣播網 高雄 下港之聲",
+      "frequency": "90.5",
+      "band": "FM",
+      "network": "微微笑廣播網",
+      "region": "高雄",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://59.120.255.155:8081/",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "微微笑廣播網",
+      "display_frequency": "FM 90.5",
+      "favorite_default": false,
+      "search_keywords": [
+        "微微笑廣播網 高雄 下港之聲",
+        "FM",
+        "FM 90.5 微微笑廣播網 高雄 下港之聲",
+        "高雄",
+        "90.5",
+        "微微笑廣播網"
+      ]
+    },
+    {
+      "id": "fm-92-5-2c2520",
+      "name": "微微笑廣播網 屏東 屏東之聲廣播電台",
+      "display_name": "FM 92.5 微微笑廣播網 屏東 屏東之聲廣播電台",
+      "frequency": "92.5",
+      "band": "FM",
+      "network": "微微笑廣播網",
+      "region": "屏東",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://59.120.255.169:8081/",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "微微笑廣播網",
+      "display_frequency": "FM 92.5",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM 92.5 微微笑廣播網 屏東 屏東之聲廣播電台",
+        "FM",
+        "微微笑廣播網 屏東 屏東之聲廣播電台",
+        "92.5",
+        "屏東",
+        "微微笑廣播網"
+      ]
+    },
+    {
+      "id": "fm-90-9-9e3e0c",
+      "name": "微微笑廣播網 屏東 潮州之聲廣播電台",
+      "display_name": "FM 90.9 微微笑廣播網 屏東 潮州之聲廣播電台",
+      "frequency": "90.9",
+      "band": "FM",
+      "network": "微微笑廣播網",
+      "region": "屏東",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://59.120.255.170:8081/",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "微微笑廣播網",
+      "display_frequency": "FM 90.9",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM 90.9 微微笑廣播網 屏東 潮州之聲廣播電台",
+        "FM",
+        "微微笑廣播網 屏東 潮州之聲廣播電台",
+        "90.9",
+        "屏東",
+        "微微笑廣播網"
+      ]
+    },
+    {
+      "id": "fm-91-3-44d13d",
+      "name": "微微笑廣播網 屏東 大武山廣播電台",
+      "display_name": "FM 91.3 微微笑廣播網 屏東 大武山廣播電台",
+      "frequency": "91.3",
+      "band": "FM",
+      "network": "微微笑廣播網",
+      "region": "屏東",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://59.120.255.171:8081/",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "微微笑廣播網",
+      "display_frequency": "FM 91.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "微微笑廣播網 屏東 大武山廣播電台",
+        "FM 91.3 微微笑廣播網 屏東 大武山廣播電台",
+        "屏東",
+        "91.3",
+        "微微笑廣播網"
+      ]
+    },
+    {
+      "id": "fm-106-3-9196f7",
+      "name": "微微笑廣播網 金門 大金廣播電台",
+      "display_name": "FM 106.3 微微笑廣播網 金門 大金廣播電台",
+      "frequency": "106.3",
+      "band": "FM",
+      "network": "微微笑廣播網",
+      "region": "金門",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://211.72.65.63:8080/",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "微微笑廣播網",
+      "display_frequency": "FM 106.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "106.3",
+        "微微笑廣播網 金門 大金廣播電台",
+        "金門",
+        "FM",
+        "FM 106.3 微微笑廣播網 金門 大金廣播電台",
+        "微微笑廣播網"
+      ]
+    },
+    {
+      "id": "a51f13",
+      "name": "大愛網路電台",
+      "display_name": "大愛網路電台",
+      "frequency": null,
+      "band": null,
+      "network": "大愛",
+      "region": null,
+      "category": "religion_spiritual",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.radiojar.com/eme6n6k3rxhvv",
+      "ui_primary_group": "宗教心靈",
+      "ui_secondary_group": "大愛",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "大愛",
+        "大愛網路廣播電台",
+        "大愛網路廣播電台(分流?)",
+        "大愛網路電台",
+        "大愛網路電台 主串流",
+        "大愛網路電台 備串流"
+      ],
+      "aliases": [
+        "大愛網路電台 主串流",
+        "大愛網路電台 備串流",
+        "大愛網路廣播電台(分流?)"
+      ],
+      "merged_from_ids": [
+        "a88308",
+        "7dfacc"
+      ]
+    },
+    {
+      "id": "fm-90-5-a0a77d",
+      "name": "大樹下廣播電台",
+      "display_name": "大樹下廣播電台 FM 90.5",
+      "frequency": "90.5",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://60.250.148.112:8000/live",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 90.5",
+      "favorite_default": false,
+      "search_keywords": [
+        "90.5",
+        "FM",
+        "FM 90.5 大樹下廣播電台",
+        "FM 90.5 大樹下廣播電台 分流1",
+        "大樹下廣播電台",
+        "大樹下廣播電台 分流1",
+        "大樹下電台",
+        "大樹下電台 FM90.5"
+      ],
+      "aliases": [
+        "FM 90.5 大樹下廣播電台",
+        "FM 90.5 大樹下廣播電台 分流1",
+        "大樹下電台 FM90.5"
+      ],
+      "merged_from_ids": [
+        "1-fm-90-5-f3c90c",
+        "fm-90-5-93b211"
+      ]
+    },
+    {
+      "id": "fm-96-9-07db71",
+      "name": "輕鬆電台",
+      "display_name": "FM 96.9 輕鬆電台",
+      "frequency": "96.9",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "music",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/k41z6wadu5hvv.m4a?1698707651",
+      "ui_primary_group": "音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 96.9",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM 96.9 輕鬆電台",
+        "FM",
+        "96.9",
+        "輕鬆電台"
+      ]
+    },
+    {
+      "id": "fm-93-5-167328",
+      "name": "新客家廣播電台",
+      "display_name": "FM 93.5 新客家廣播電台",
+      "frequency": "93.5",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "language_culture",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://live.fm935newhakka.com.tw:5006/live",
+      "ui_primary_group": "語言文化",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 93.5",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "93.5",
+        "FM 93.5 新客家廣播電台",
+        "新客家廣播電台"
+      ]
+    },
+    {
+      "id": "cf8717",
+      "name": "漁業廣播電台",
+      "display_name": "漁業廣播電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "public_service",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.rcs.revma.com/mk0c5vq122hvv",
+      "ui_primary_group": "公共服務",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "漁業廣播電台"
+      ]
+    },
+    {
+      "id": "fm-92-3-cdf9cb",
+      "name": "寶島聯播網 基北區 寶島新聲",
+      "display_name": "FM 92.3 寶島聯播網 基北區 寶島新聲",
+      "frequency": "92.3",
+      "band": "FM",
+      "network": "寶島聯播網",
+      "region": "基北",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://125.227.87.206:8000/FM98.5",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "寶島聯播網",
+      "display_frequency": "FM 92.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "寶島聯播網",
+        "FM 92.3 寶島聯播網 基北區 寶島新聲",
+        "寶島聯播網 基北區 寶島新聲",
+        "基北",
+        "92.3"
+      ]
+    },
+    {
+      "id": "fm-99-1-02ea73",
+      "name": "寶島聯播網 中區 大千電台",
+      "display_name": "FM 99.1 寶島聯播網 中區 大千電台",
+      "frequency": "99.1",
+      "band": "FM",
+      "network": "寶島聯播網",
+      "region": "中區",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://125.227.87.206:8000/FM99.1",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "寶島聯播網",
+      "display_frequency": "FM 99.1",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM 99.1 寶島聯播網 中區 大千電台",
+        "FM",
+        "中區",
+        "寶島聯播網",
+        "99.1",
+        "寶島聯播網 中區 大千電台"
+      ]
+    },
+    {
+      "id": "fm-96-9-28b4c2",
+      "name": "寶島聯播網 高屏區 主人電台",
+      "display_name": "FM 96.9 寶島聯播網 高屏區 主人電台",
+      "frequency": "96.9",
+      "band": "FM",
+      "network": "寶島聯播網",
+      "region": "高屏",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://125.227.87.206:8000/FM96.9",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "寶島聯播網",
+      "display_frequency": "FM 96.9",
+      "favorite_default": false,
+      "search_keywords": [
+        "高屏",
+        "FM",
+        "FM 96.9 寶島聯播網 高屏區 主人電台",
+        "寶島聯播網",
+        "寶島聯播網 高屏區 主人電台",
+        "96.9"
+      ]
+    },
+    {
+      "id": "8d398b",
+      "name": "牽手之聲網路電台",
+      "display_name": "牽手之聲網路電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "online_radio",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://us3.internet-radio.com:8232/stream",
+      "ui_primary_group": "網路廣播",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "牽手之聲網路電台"
+      ]
+    },
+    {
+      "id": "knls-f8204b",
+      "name": "KNLS 生命之光广播电台 美國宗教電台",
+      "display_name": "KNLS 生命之光广播电台 美國宗教電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "religion_spiritual",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "https://stream.radiojar.com/z3ctv2zxm2zuv",
+      "ui_primary_group": "宗教心靈",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "KNLS 生命之光广播电台 美國宗教電台"
+      ]
+    },
+    {
+      "id": "fm-88-9-0add8c",
+      "name": "苗栗正義電台",
+      "display_name": "苗栗正義電台 FM 88.9",
+      "frequency": "88.9",
+      "band": "FM",
+      "network": null,
+      "region": "苗栗",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://211.20.119.103:8081/",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "苗栗",
+      "display_frequency": "FM 88.9",
+      "favorite_default": false,
+      "search_keywords": [
+        "88.9",
+        "FM",
+        "苗栗正義電台 FM 88.9",
+        "苗栗正義電台",
+        "苗栗"
+      ]
+    },
+    {
+      "id": "am-810-486f06",
+      "name": "國聲廣播",
+      "display_name": "AM 810 國聲廣播",
+      "frequency": "810",
+      "band": "AM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/CH.AM810",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "AM 810",
+      "favorite_default": false,
+      "search_keywords": [
+        "AM 810 國聲廣播",
+        "810",
+        "AM",
+        "國聲廣播"
+      ]
+    },
+    {
+      "id": "fm-89-3-5a0b74",
+      "name": "南方之音",
+      "display_name": "FM 89.3 南方之音",
+      "frequency": "89.3",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/KS.FM89.3",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 89.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "89.3",
+        "FM 89.3 南方之音",
+        "FM",
+        "南方之音"
+      ]
+    },
+    {
+      "id": "fm-98-5-a1cca2",
+      "name": "非凡音廣播電台",
+      "display_name": "FM 98.5 非凡音廣播電台",
+      "frequency": "98.5",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TC.FM98.5",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 98.5",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM 98.5 非凡音廣播電台",
+        "FM",
+        "非凡音廣播電台",
+        "98.5"
+      ]
+    },
+    {
+      "id": "am-1179-be2567",
+      "name": "國聲廣播",
+      "display_name": "AM 1179 國聲廣播",
+      "frequency": "1179",
+      "band": "AM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/CH.AM1179",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "AM 1179",
+      "favorite_default": false,
+      "search_keywords": [
+        "1179",
+        "AM 1179 國聲廣播",
+        "AM",
+        "國聲廣播"
+      ]
+    },
+    {
+      "id": "fm-97-9-911cdc",
+      "name": "新竹之音",
+      "display_name": "FM 97.9 新竹之音",
+      "frequency": "97.9",
+      "band": "FM",
+      "network": null,
+      "region": "新竹",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/HC.FM97.9",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "新竹",
+      "display_frequency": "FM 97.9",
+      "favorite_default": false,
+      "search_keywords": [
+        "新竹之音",
+        "新竹",
+        "FM",
+        "97.9",
+        "FM 97.9 新竹之音"
+      ]
+    },
+    {
+      "id": "fm-88-7-4660aa",
+      "name": "花園電台",
+      "display_name": "FM 88.7 花園電台",
+      "frequency": "88.7",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/CH.FM88.7",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 88.7",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "88.7",
+        "FM 88.7 花園電台",
+        "花園電台"
+      ]
+    },
+    {
+      "id": "fm-91-3-e32f91",
+      "name": "寶島聯播網 嘉義之音",
+      "display_name": "FM 91.3 寶島聯播網 嘉義之音",
+      "frequency": "91.3",
+      "band": "FM",
+      "network": "寶島聯播網",
+      "region": "嘉義",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/CY.FM91.3",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "寶島聯播網",
+      "display_frequency": "FM 91.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "嘉義",
+        "寶島聯播網 嘉義之音",
+        "FM",
+        "FM 91.3 寶島聯播網 嘉義之音",
+        "寶島聯播網",
+        "91.3"
+      ]
+    },
+    {
+      "id": "fm-97-3-d2e05e",
+      "name": "靉友之聲",
+      "display_name": "FM 97.3 靉友之聲",
+      "frequency": "97.3",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/CH.FM97.3",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 97.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "97.3",
+        "靉友之聲",
+        "FM",
+        "FM 97.3 靉友之聲"
+      ]
+    },
+    {
+      "id": "4619ab",
+      "name": "資悠網路廣播實驗電台",
+      "display_name": "資悠網路廣播實驗電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "online_radio",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/guide",
+      "ui_primary_group": "網路廣播",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "資悠網路廣播實驗電台"
+      ]
+    },
+    {
+      "id": "fm-91-1-362694",
+      "name": "關懷電台",
+      "display_name": "關懷電台 FM91.1",
+      "frequency": "91.1",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "religion_spiritual",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/CH.FM91.1",
+      "ui_primary_group": "宗教心靈",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 91.1",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "關懷電台",
+        "91.1",
+        "關懷電台 FM91.1"
+      ]
+    },
+    {
+      "id": "fm-91-7-e880b0",
+      "name": "嘉義北回電台",
+      "display_name": "嘉義北回電台 FM91.7",
+      "frequency": "91.7",
+      "band": "FM",
+      "network": null,
+      "region": "嘉義",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/CY.FM91.7",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "嘉義",
+      "display_frequency": "FM 91.7",
+      "favorite_default": false,
+      "search_keywords": [
+        "嘉義",
+        "嘉義北回電台",
+        "FM",
+        "嘉義北回電台 FM91.7",
+        "91.7"
+      ]
+    },
+    {
+      "id": "fm-93-3-03c27f",
+      "name": "雲嘉電台",
+      "display_name": "雲嘉電台 FM93.3",
+      "frequency": "93.3",
+      "band": "FM",
+      "network": null,
+      "region": "雲嘉",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/CY.FM93.3",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "雲嘉",
+      "display_frequency": "FM 93.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "雲嘉電台",
+        "FM",
+        "雲嘉",
+        "雲嘉電台 FM93.3",
+        "93.3"
+      ]
+    },
+    {
+      "id": "fm-99-3-c0ceb0",
+      "name": "新聲廣播電台",
+      "display_name": "新聲廣播電台 FM99.3",
+      "frequency": "99.3",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/HC.FM99.3",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 99.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "新聲廣播電台 FM99.3",
+        "99.3",
+        "新聲廣播電台"
+      ]
+    },
+    {
+      "id": "am-1242-a74627",
+      "name": "花蓮燕聲廣播電台",
+      "display_name": "花蓮燕聲廣播電台 AM1242",
+      "frequency": "1242",
+      "band": "AM",
+      "network": null,
+      "region": "花蓮",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/HL.AM1242",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "花蓮",
+      "display_frequency": "AM 1242",
+      "favorite_default": false,
+      "search_keywords": [
+        "AM",
+        "花蓮",
+        "1242",
+        "花蓮燕聲廣播電台 AM1242",
+        "花蓮燕聲廣播電台"
+      ]
+    },
+    {
+      "id": "am-1044-f385cc",
+      "name": "花蓮燕聲廣播電台",
+      "display_name": "花蓮燕聲廣播電台 AM1044",
+      "frequency": "1044",
+      "band": "AM",
+      "network": null,
+      "region": "花蓮",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/HL.AM1044",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "花蓮",
+      "display_frequency": "AM 1044",
+      "favorite_default": false,
+      "search_keywords": [
+        "1044",
+        "AM",
+        "花蓮燕聲廣播電台 AM1044",
+        "花蓮",
+        "花蓮燕聲廣播電台"
+      ]
+    },
+    {
+      "id": "am-1404-b3935a",
+      "name": "益世電台",
+      "display_name": "益世電台 AM1404",
+      "frequency": "1404",
+      "band": "AM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/KL.AM1404",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "AM 1404",
+      "favorite_default": false,
+      "search_keywords": [
+        "益世電台 AM1404",
+        "1404",
+        "益世電台",
+        "AM"
+      ]
+    },
+    {
+      "id": "fm-99-5-c6b643",
+      "name": "雲端新電台",
+      "display_name": "雲端新電台 FM99.5",
+      "frequency": "99.5",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/KS.FM99.5",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 99.5",
+      "favorite_default": false,
+      "search_keywords": [
+        "雲端新電台 FM99.5",
+        "FM",
+        "99.5",
+        "雲端新電台"
+      ]
+    },
+    {
+      "id": "fm-98-3-33b3b3",
+      "name": "港都電台",
+      "display_name": "港都電台 FM98.3",
+      "frequency": "98.3",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/KS.FM98.3",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 98.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "港都電台",
+        "FM",
+        "港都電台 FM98.3",
+        "98.3"
+      ]
+    },
+    {
+      "id": "fm-97-1-66835f",
+      "name": "大漢之音",
+      "display_name": "大漢之音 FM97.1",
+      "frequency": "97.1",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/ML.FM97.1",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 97.1",
+      "favorite_default": false,
+      "search_keywords": [
+        "97.1",
+        "大漢之音",
+        "大漢之音 FM97.1",
+        "FM"
+      ]
+    },
+    {
+      "id": "am-963-dd369d",
+      "name": "台廣南投中興台",
+      "display_name": "台廣南投中興台 AM963",
+      "frequency": "963",
+      "band": "AM",
+      "network": null,
+      "region": "南投",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/NT.AM963",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "南投",
+      "display_frequency": "AM 963",
+      "favorite_default": false,
+      "search_keywords": [
+        "AM",
+        "南投",
+        "台廣南投中興台",
+        "台廣南投中興台 AM963",
+        "963"
+      ]
+    },
+    {
+      "id": "am-630-1a6e5d",
+      "name": "台廣南投松嶺台",
+      "display_name": "台廣南投松嶺台 AM630",
+      "frequency": "630",
+      "band": "AM",
+      "network": null,
+      "region": "南投",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/NT.AM630",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "南投",
+      "display_frequency": "AM 630",
+      "favorite_default": false,
+      "search_keywords": [
+        "台廣南投松嶺台 AM630",
+        "台廣南投松嶺台",
+        "AM",
+        "南投",
+        "630"
+      ]
+    },
+    {
+      "id": "am-756-fc8a8e",
+      "name": "勝利澎湖馬公台",
+      "display_name": "勝利澎湖馬公台 AM756",
+      "frequency": "756",
+      "band": "AM",
+      "network": null,
+      "region": "澎湖",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/PH.AM756",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "澎湖",
+      "display_frequency": "AM 756",
+      "favorite_default": false,
+      "search_keywords": [
+        "澎湖",
+        "AM",
+        "756",
+        "勝利澎湖馬公台",
+        "勝利澎湖馬公台 AM756"
+      ]
+    },
+    {
+      "id": "fm-98-7-d42b05",
+      "name": "每日廣播電台",
+      "display_name": "每日廣播電台 FM98.7",
+      "frequency": "98.7",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TC.FM98.7",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 98.7",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "每日廣播電台 FM98.7",
+        "98.7",
+        "每日廣播電台"
+      ]
+    },
+    {
+      "id": "fm-89-1-b5c83f",
+      "name": "太陽廣播電台",
+      "display_name": "太陽廣播電台 FM89.1",
+      "frequency": "89.1",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TC.FM89.1",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 89.1",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "太陽廣播電台",
+        "太陽廣播電台 FM89.1",
+        "89.1"
+      ]
+    },
+    {
+      "id": "fm-97-7-522f79",
+      "name": "好家庭古典音樂電台",
+      "display_name": "好家庭古典音樂電台 FM97.7",
+      "frequency": "97.7",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "music",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TC.FM97.7",
+      "ui_primary_group": "音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 97.7",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "97.7",
+        "好家庭古典音樂電台 FM97.7",
+        "好家庭古典音樂電台"
+      ]
+    },
+    {
+      "id": "am-1071-59a380",
+      "name": "電聲廣播電台",
+      "display_name": "電聲廣播電台 AM1071",
+      "frequency": "1071",
+      "band": "AM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TN.AM1071",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "AM 1071",
+      "favorite_default": false,
+      "search_keywords": [
+        "電聲廣播電台",
+        "1071",
+        "電聲廣播電台 AM1071",
+        "AM"
+      ]
+    },
+    {
+      "id": "am-774-9ba6ea",
+      "name": "勝利一台",
+      "display_name": "勝利一台 AM774",
+      "frequency": "774",
+      "band": "AM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TN.AM774",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "AM 774",
+      "favorite_default": false,
+      "search_keywords": [
+        "勝利一台",
+        "774",
+        "勝利一台 AM774",
+        "AM"
+      ]
+    },
+    {
+      "id": "am-954-03ad9f",
+      "name": "建國電台",
+      "display_name": "建國電台 AM954",
+      "frequency": "954",
+      "band": "AM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TN.AM954",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "AM 954",
+      "favorite_default": false,
+      "search_keywords": [
+        "AM",
+        "954",
+        "建國電台 AM954",
+        "建國電台"
+      ]
+    },
+    {
+      "id": "fm-99-7-ef41a2",
+      "name": "台南都會聲音",
+      "display_name": "台南都會聲音 FM99.7",
+      "frequency": "99.7",
+      "band": "FM",
+      "network": null,
+      "region": "台南",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TN.FM99.7",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "台南",
+      "display_frequency": "FM 99.7",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "台南",
+        "台南都會聲音 FM99.7",
+        "台南都會聲音",
+        "99.7"
+      ]
+    },
+    {
+      "id": "am-1188-4ea519",
+      "name": "勝利二台",
+      "display_name": "勝利二台 AM1188",
+      "frequency": "1188",
+      "band": "AM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TN.AM1188",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "AM 1188",
+      "favorite_default": false,
+      "search_keywords": [
+        "勝利二台",
+        "1188",
+        "AM",
+        "勝利二台 AM1188"
+      ]
+    },
+    {
+      "id": "am-801-dbf9e8",
+      "name": "建國廣播電台",
+      "display_name": "建國廣播電台 AM801",
+      "frequency": "801",
+      "band": "AM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TN.AM801",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "AM 801",
+      "favorite_default": false,
+      "search_keywords": [
+        "建國廣播電台 AM801",
+        "建國廣播電台",
+        "801",
+        "AM"
+      ]
+    },
+    {
+      "id": "am-1323-e0b56a",
+      "name": "台廣台北一台",
+      "display_name": "台廣台北一台 AM1323",
+      "frequency": "1323",
+      "band": "AM",
+      "network": null,
+      "region": "台北",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TP.AM1323",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "台北",
+      "display_frequency": "AM 1323",
+      "favorite_default": false,
+      "search_keywords": [
+        "1323",
+        "台北",
+        "台廣台北一台",
+        "台廣台北一台 AM1323",
+        "AM"
+      ]
+    },
+    {
+      "id": "am-1296-cd94bb",
+      "name": "民本一台",
+      "display_name": "民本一台 AM1296",
+      "frequency": "1296",
+      "band": "AM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TP.AM1296",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "AM 1296",
+      "favorite_default": false,
+      "search_keywords": [
+        "1296",
+        "民本一台 AM1296",
+        "民本一台",
+        "AM"
+      ]
+    },
+    {
+      "id": "brovo-fm-91-3-b05c17",
+      "name": "BROVO 電台",
+      "display_name": "BROVO 電台 FM91.3",
+      "frequency": "91.3",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TP.FM91.3",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 91.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "BROVO 電台 FM91.3",
+        "FM",
+        "91.3",
+        "BROVO 電台"
+      ]
+    },
+    {
+      "id": "fm-102-5-ee1bd6",
+      "name": "幸福廣播電台",
+      "display_name": "幸福廣播電台 FM102.5",
+      "frequency": "102.5",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TP.FM102.5",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 102.5",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "幸福廣播電台",
+        "幸福廣播電台 FM102.5",
+        "102.5"
+      ]
+    },
+    {
+      "id": "am-1188-d164ac",
+      "name": "台廣台北二台",
+      "display_name": "台廣台北二台 AM1188",
+      "frequency": "1188",
+      "band": "AM",
+      "network": null,
+      "region": "台北",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TP.AM1188",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "台北",
+      "display_frequency": "AM 1188",
+      "favorite_default": false,
+      "search_keywords": [
+        "台廣台北二台",
+        "台北",
+        "1188",
+        "AM",
+        "台廣台北二台 AM1188"
+      ]
+    },
+    {
+      "id": "am-855-5d68db",
+      "name": "民本二台",
+      "display_name": "民本二台 AM855",
+      "frequency": "855",
+      "band": "AM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TP.AM855",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "AM 855",
+      "favorite_default": false,
+      "search_keywords": [
+        "民本二台",
+        "855",
+        "AM",
+        "民本二台 AM855"
+      ]
+    },
+    {
+      "id": "fm-93-7-342d0e",
+      "name": "寶島客家廣播電台",
+      "display_name": "寶島客家廣播電台 FM93.7",
+      "frequency": "93.7",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "language_culture",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TP.FM93.7",
+      "ui_primary_group": "語言文化",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 93.7",
+      "favorite_default": false,
+      "search_keywords": [
+        "FM",
+        "寶島客家廣播電台 FM93.7",
+        "寶島客家廣播電台",
+        "93.7"
+      ]
+    },
+    {
+      "id": "am-819-0bb4cf",
+      "name": "正聲台北調幅台",
+      "display_name": "正聲台北調幅台 AM819",
+      "frequency": "819",
+      "band": "AM",
+      "network": "正聲",
+      "region": "台北",
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TP.AM819",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "正聲",
+      "display_frequency": "AM 819",
+      "favorite_default": false,
+      "search_keywords": [
+        "正聲台北調幅台",
+        "台北",
+        "正聲",
+        "819",
+        "AM",
+        "正聲台北調幅台 AM819"
+      ]
+    },
+    {
+      "id": "am-774-f11d0c",
+      "name": "先聲廣播電台",
+      "display_name": "先聲廣播電台 AM774",
+      "frequency": "774",
+      "band": "AM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TY.AM774",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "AM 774",
+      "favorite_default": false,
+      "search_keywords": [
+        "先聲廣播電台",
+        "774",
+        "AM",
+        "先聲廣播電台 AM774"
+      ]
+    },
+    {
+      "id": "am-621-1b5ad6",
+      "name": "台廣大溪一台",
+      "display_name": "台廣大溪一台 AM621",
+      "frequency": "621",
+      "band": "AM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TY.AM621",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "AM 621",
+      "favorite_default": false,
+      "search_keywords": [
+        "台廣大溪一台",
+        "621",
+        "AM",
+        "台廣大溪一台 AM621"
+      ]
+    },
+    {
+      "id": "am-1062-b9df62",
+      "name": "台廣大溪二台",
+      "display_name": "台廣大溪二台 AM1062",
+      "frequency": "1062",
+      "band": "AM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/TY.AM1062",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "AM 1062",
+      "favorite_default": false,
+      "search_keywords": [
+        "1062",
+        "台廣大溪二台 AM1062",
+        "AM",
+        "台廣大溪二台"
+      ]
+    },
+    {
+      "id": "fm-106-3-240011",
+      "name": "農鄉廣播電台",
+      "display_name": "農鄉廣播電台 FM106.3",
+      "frequency": "106.3",
+      "band": "FM",
+      "network": null,
+      "region": null,
+      "category": "local_general",
+      "media_type": "radio",
+      "source_group": "taiwan_radio",
+      "stream_url": "http://43.254.16.40:8000/YL.FM106.3",
+      "ui_primary_group": "地方綜合",
+      "ui_secondary_group": "其他",
+      "display_frequency": "FM 106.3",
+      "favorite_default": false,
+      "search_keywords": [
+        "農鄉廣播電台 FM106.3",
+        "FM",
+        "農鄉廣播電台",
+        "106.3"
+      ]
+    },
+    {
+      "id": "gojoy-a8862c",
+      "name": "GOJOY夠跩",
+      "display_name": "GOJOY夠跩",
+      "frequency": null,
+      "band": null,
+      "network": "GOJOY",
+      "region": null,
+      "category": "online_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "https://play.gojoy.org/audio/stream",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "GOJOY夠跩",
+        "GOJOY"
+      ]
+    },
+    {
+      "id": "boss-online-radio-9eb3ba",
+      "name": "BOSS ONLINE RADIO",
+      "display_name": "BOSS ONLINE RADIO",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "online_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "https://stream.radiojar.com/ehzvurp9tv8uv",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "BOSS ONLINE RADIO"
+      ]
+    },
+    {
+      "id": "taiwan-lounge-radio-e4bfdc",
+      "name": "Taiwan Lounge Radio",
+      "display_name": "Taiwan Lounge Radio",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "online_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "https://azuracast.conceptradio.fr/radio/8030/stream.mp3",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "Taiwan Lounge Radio"
+      ]
+    },
+    {
+      "id": "1766-97ee41",
+      "name": "1766網路廣播電台 百家知識頻道",
+      "display_name": "1766網路廣播電台 百家知識頻道",
+      "frequency": null,
+      "band": null,
+      "network": "1766網路廣播電台",
+      "region": null,
+      "category": "talk",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "http://livestream.1766.today:1768/live1.mp3",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "1766網路廣播電台",
+        "1766網路廣播電台 百家知識頻道"
+      ]
+    },
+    {
+      "id": "1766-887095",
+      "name": "1766網路廣播電台 店頭音樂頻道",
+      "display_name": "1766網路廣播電台 店頭音樂頻道",
+      "frequency": null,
+      "band": null,
+      "network": "1766網路廣播電台",
+      "region": null,
+      "category": "online_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "http://livestream.1766.today:1768/live2.mp3",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "1766網路廣播電台",
+        "1766網路廣播電台 店頭音樂頻道"
+      ]
+    },
+    {
+      "id": "1766-8be191",
+      "name": "1766網路廣播電台 私房音樂頻道",
+      "display_name": "1766網路廣播電台 私房音樂頻道",
+      "frequency": null,
+      "band": null,
+      "network": "1766網路廣播電台",
+      "region": null,
+      "category": "online_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "http://livestream.1766.today:1768/live3.mp3",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "1766網路廣播電台 私房音樂頻道",
+        "1766網路廣播電台"
+      ]
+    },
+    {
+      "id": "5eaf4c",
+      "name": "栗子的輕音樂",
+      "display_name": "栗子的輕音樂",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "online_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "http://lizeradio.com:8080/;",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "栗子的輕音樂"
+      ]
+    },
+    {
+      "id": "ottava-64f226",
+      "name": "「OTTAVA」日本線上古典音樂廣播電台",
+      "display_name": "「OTTAVA」日本線上古典音樂廣播電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "specialty_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "https://ottava2.out.airtime.pro/ottava2_a",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "「OTTAVA」日本線上古典音樂廣播電台"
+      ]
+    },
+    {
+      "id": "bigbradio-kpop-11a786",
+      "name": "BigBRadio 音樂電台 Kpop類型",
+      "display_name": "BigBRadio 音樂電台 Kpop類型",
+      "frequency": null,
+      "band": null,
+      "network": "BigBRadio",
+      "region": null,
+      "category": "online_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "https://antares.dribbcast.com/proxy/kpop?mp=/s",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "BigBRadio",
+        "BigBRadio 音樂電台 Kpop類型"
+      ]
+    },
+    {
+      "id": "bigbradio-jpop-c0c0a6",
+      "name": "BigBRadio 音樂電台Jpop類型",
+      "display_name": "BigBRadio 音樂電台Jpop類型",
+      "frequency": null,
+      "band": null,
+      "network": "BigBRadio",
+      "region": null,
+      "category": "online_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "https://antares.dribbcast.com/proxy/jpop?mp=/s",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "BigBRadio",
+        "BigBRadio 音樂電台Jpop類型"
+      ]
+    },
+    {
+      "id": "bigbradio-cpop-3c932e",
+      "name": "BigBRadio音樂電台 Cpop類型",
+      "display_name": "BigBRadio音樂電台 Cpop類型",
+      "frequency": null,
+      "band": null,
+      "network": "BigBRadio",
+      "region": null,
+      "category": "online_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "https://antares.dribbcast.com/proxy/cpop?mp=/s",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "BigBRadio音樂電台 Cpop類型",
+        "BigBRadio"
+      ]
+    },
+    {
+      "id": "bigbradio-apop-e168e2",
+      "name": "BigBRadio 音樂電台 Apop類型",
+      "display_name": "BigBRadio 音樂電台 Apop類型",
+      "frequency": null,
+      "band": null,
+      "network": "BigBRadio",
+      "region": null,
+      "category": "online_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "https://antares.dribbcast.com/proxy/apop?mp=/s",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "BigBRadio 音樂電台 Apop類型",
+        "BigBRadio"
+      ]
+    },
+    {
+      "id": "phate-io-6f98ea",
+      "name": "phate.io 飛特動漫音樂電台(可點歌)",
+      "display_name": "phate.io 飛特動漫音樂電台(可點歌)",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "acg_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "https://stream.phate.io/phateio.mp3",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "phate.io 飛特動漫音樂電台(可點歌)"
+      ]
+    },
+    {
+      "id": "mt-radio-acg-667f28",
+      "name": "MT.Radio ACG動漫音樂電台",
+      "display_name": "MT.Radio ACG動漫音樂電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "acg_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "http://mtradio.asuscomm.com:8000/;",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "MT.Radio ACG動漫音樂電台"
+      ]
+    },
+    {
+      "id": "vocaloidradio-acg-0a78ee",
+      "name": "VocaloidRadio ACG動漫音樂電台",
+      "display_name": "VocaloidRadio ACG動漫音樂電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "acg_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "http://curiosity.shoutca.st:8019/stream",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "VocaloidRadio ACG動漫音樂電台"
+      ]
+    },
+    {
+      "id": "japanimradio-acg-a0eb5b",
+      "name": "Japanimradio ACG動漫音樂電台",
+      "display_name": "Japanimradio ACG動漫音樂電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "acg_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "https://ais-edge104-live365-dal02.cdnstream.com/a53497",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "Japanimradio ACG動漫音樂電台"
+      ]
+    },
+    {
+      "id": "box-weeb-anime-network-acg-3399b1",
+      "name": "BOX : Weeb Anime Network ACG動漫音樂電台",
+      "display_name": "BOX : Weeb Anime Network ACG動漫音樂電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "acg_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "https://ss-edge.joeycast.com/anime.mp3",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "BOX : Weeb Anime Network ACG動漫音樂電台"
+      ]
+    },
+    {
+      "id": "stereoanime-net-acg-9e998f",
+      "name": "Stereoanime.net ACG動漫音樂電台",
+      "display_name": "Stereoanime.net ACG動漫音樂電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "acg_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "https://radio.stereoanime.net/listen/stereoanime/;",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "Stereoanime.net ACG動漫音樂電台"
+      ]
+    },
+    {
+      "id": "anime-fm-acg-9a908d",
+      "name": "Anime.FM ACG動漫音樂電台",
+      "display_name": "Anime.FM ACG動漫音樂電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "acg_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "https://animefm.stream.laut.fm/animefm",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "Anime.FM ACG動漫音樂電台"
+      ]
+    },
+    {
+      "id": "animeradio-de-acg-2fe889",
+      "name": "AnimeRadio.de ACG動漫音樂電台",
+      "display_name": "AnimeRadio.de ACG動漫音樂電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "acg_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "https://stream.animeradio.de/animeradio.mp3",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "AnimeRadio.de ACG動漫音樂電台"
+      ]
+    },
+    {
+      "id": "radio-anime-nexus-acg-386b31",
+      "name": "Radio Anime Nexus ACG動漫音樂電台",
+      "display_name": "Radio Anime Nexus ACG動漫音樂電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "acg_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "https://cast.animenexus.net/radio/8000/animenexus",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "Radio Anime Nexus ACG動漫音樂電台"
+      ]
+    },
+    {
+      "id": "gensokyo-radio-64kbps-761790",
+      "name": "Gensokyo Radio 幻想郷ラジオ 動漫音樂電台(64kbps)",
+      "display_name": "Gensokyo Radio 幻想郷ラジオ 動漫音樂電台(64kbps)",
+      "frequency": null,
+      "band": null,
+      "network": "Gensokyo Radio",
+      "region": null,
+      "category": "acg_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "http://stream.gensokyoradio.net:8000/1",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "Gensokyo Radio",
+        "Gensokyo Radio 幻想郷ラジオ 動漫音樂電台(64kbps)"
+      ]
+    },
+    {
+      "id": "gensokyo-radio-128kbps-1ca0aa",
+      "name": "Gensokyo Radio 幻想郷ラジオ 動漫音樂電台(128kbps)",
+      "display_name": "Gensokyo Radio 幻想郷ラジオ 動漫音樂電台(128kbps)",
+      "frequency": null,
+      "band": null,
+      "network": "Gensokyo Radio",
+      "region": null,
+      "category": "acg_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "http://stream.gensokyoradio.net:8000/2",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "Gensokyo Radio",
+        "Gensokyo Radio 幻想郷ラジオ 動漫音樂電台(128kbps)"
+      ]
+    },
+    {
+      "id": "gensokyo-radio-256kbps-3995df",
+      "name": "Gensokyo Radio 幻想郷ラジオ 動漫音樂電台(256kbps)",
+      "display_name": "Gensokyo Radio 幻想郷ラジオ 動漫音樂電台(256kbps)",
+      "frequency": null,
+      "band": null,
+      "network": "Gensokyo Radio",
+      "region": null,
+      "category": "acg_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "http://stream.gensokyoradio.net:8000/3",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "Gensokyo Radio",
+        "Gensokyo Radio 幻想郷ラジオ 動漫音樂電台(256kbps)"
+      ]
+    },
+    {
+      "id": "goradio-gr-greek-otaku-radio-acg-80dd26",
+      "name": "goradio.gr Greek Otaku Radio ACG動漫音樂電台",
+      "display_name": "goradio.gr Greek Otaku Radio ACG動漫音樂電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "acg_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "https://usa2.fastcast4u.com/proxy/greekota?mp=/1&1703920567172",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "goradio.gr Greek Otaku Radio ACG動漫音樂電台"
+      ]
+    },
+    {
+      "id": "otaku-s-radio-acg-3f7a19",
+      "name": "Otaku's Radio ACG動漫音樂電台",
+      "display_name": "Otaku's Radio ACG動漫音樂電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "acg_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "http://109.169.23.124:8069/stream",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "Otaku's Radio ACG動漫音樂電台"
+      ]
+    },
+    {
+      "id": "retro-pc-game-music-streaming-radio-6030fb",
+      "name": "Retro PC Game Music Streaming Radio 早期遊戲音樂電台",
+      "display_name": "Retro PC Game Music Streaming Radio 早期遊戲音樂電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "specialty_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "http://gyusyabu.ddo.jp:8000/;stream.mp3",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "Retro PC Game Music Streaming Radio 早期遊戲音樂電台"
+      ]
+    },
+    {
+      "id": "chiru-no-acg-ebc4e6",
+      "name": "chiru.no ACG動漫音樂電台",
+      "display_name": "chiru.no ACG動漫音樂電台",
+      "frequency": null,
+      "band": null,
+      "network": null,
+      "region": null,
+      "category": "acg_music",
+      "media_type": "online_music",
+      "source_group": "music_stream",
+      "stream_url": "https://chiru.no:8000/stream.mp3",
+      "ui_primary_group": "網路音樂",
+      "ui_secondary_group": "其他",
+      "display_frequency": null,
+      "favorite_default": false,
+      "search_keywords": [
+        "chiru.no ACG動漫音樂電台"
+      ]
+    }
+  ],
+  "dedupe_resolutions": [
+    {
+      "group": "臺北廣播電臺 FM 93.1",
+      "kept_id": "fm-93-1-22a8a6",
+      "kept_stream_url": "https://stream.ginnet.cloud/live0130lo-yfyo/_definst_/fm/playlist.m3u8",
+      "removed_ids": [
+        "93-1-22a8a6"
+      ],
+      "reason": "同一串流 URL 的重複別名，保留 FM 主頻名稱"
+    },
+    {
+      "group": "羅東廣播電台 FM 90.3",
+      "kept_id": "fm-90-3-8b3f07",
+      "kept_stream_url": "https://stream.ginnet.cloud/live0119lo-p4rb/_definst_/fm903/playlist.m3u8",
+      "removed_ids": [
+        "fm-90-3-6a7a4c"
+      ],
+      "reason": "同台不同來源，依使用者要求保留主流 URL"
+    },
+    {
+      "group": "大愛網路電台",
+      "kept_id": "a51f13",
+      "kept_stream_url": "https://stream.radiojar.com/eme6n6k3rxhvv",
+      "removed_ids": [
+        "a88308",
+        "7dfacc"
+      ],
+      "reason": "主串流 / 備串流 / 分流 合併為單一主流入口"
+    },
+    {
+      "group": "大樹下廣播電台 FM 90.5",
+      "kept_id": "fm-90-5-a0a77d",
+      "kept_stream_url": "http://60.250.148.112:8000/live",
+      "removed_ids": [
+        "1-fm-90-5-f3c90c",
+        "fm-90-5-93b211"
+      ],
+      "reason": "主流 / 分流 / 別名 合併為單一主流入口"
+    },
+    {
+      "group": "中廣新聞網",
+      "kept_id": "china-broadcast-news-f55bd1",
+      "kept_stream_url": "https://stream.rcs.revma.com/78fm9wyy2tzuv",
+      "removed_ids": [
+        "8e85a3"
+      ],
+      "reason": "兩個來源僅保留主流 URL"
+    }
+  ]
+}
